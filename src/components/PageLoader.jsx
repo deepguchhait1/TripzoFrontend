@@ -35,7 +35,6 @@ const PageLoader = () => {
               alt="Tripzo"
               className="w-12 h-12 rounded-full object-cover ring-2 shadow-md mix-blend-multiply"
               style={{ background: 'transparent', '--tw-ring-color': '#00BC7D' }}
-              style={{ background: 'transparent' }}
             />
           </div>
         </div>
