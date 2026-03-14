@@ -3,7 +3,7 @@ import { FaArrowRight, FaPlay } from "react-icons/fa";
 
 const CTASection = () => {
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 bg-white dark:bg-gray-900 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative rounded-[2rem] overflow-hidden min-h-[480px]">
           {/* Background image */}

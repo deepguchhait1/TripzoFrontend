@@ -81,29 +81,29 @@ const Categories = () => {
   }, []);
 
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
+    <section className="py-24 bg-white dark:bg-gray-900 relative overflow-hidden transition-colors">
       {/* Subtle bg decoration */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 opacity-60" />
-      <div className="absolute bottom-0 left-0 w-72 h-72 bg-amber-50 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 opacity-60" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-50 dark:bg-emerald-900/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 opacity-60" />
+      <div className="absolute bottom-0 left-0 w-72 h-72 bg-amber-50 dark:bg-amber-900/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 opacity-60" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
           <div>
-            <div className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-600 rounded-full px-4 py-1.5 text-sm font-semibold mb-4">
+            <div className="inline-flex items-center gap-2 bg-emerald-50 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400 rounded-full px-4 py-1.5 text-sm font-semibold mb-4">
               <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full" />
               Categories
             </div>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">
-              Explore by <span className="text-emerald-600">Category</span>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">
+              Explore by <span className="text-emerald-600 dark:text-emerald-400">Category</span>
             </h2>
-            <p className="text-gray-500 mt-3 max-w-lg text-lg">
+            <p className="text-gray-500 dark:text-gray-400 mt-3 max-w-lg text-lg">
               Choose your travel style and find the perfect destination.
             </p>
           </div>
           <Link
             to="/destinations"
-            className="group inline-flex items-center gap-2 text-emerald-600 font-semibold hover:gap-3 transition-all shrink-0"
+            className="group inline-flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-semibold hover:gap-3 transition-all shrink-0"
           >
             Browse All
             <FaArrowRight className="text-sm group-hover:translate-x-1 transition-transform" />
@@ -119,7 +119,7 @@ const Categories = () => {
               <Link
                 key={cat.id}
                 to={`/destinations?category=${cat.id}`}
-                className="group relative flex items-center gap-5 bg-gray-50 hover:bg-white rounded-2xl p-4 pr-6 border border-gray-100 hover:border-gray-200 hover:shadow-xl hover:shadow-gray-200/50 transition-all duration-300"
+                className="group relative flex items-center gap-5 bg-gray-50 dark:bg-gray-800 hover:bg-white dark:hover:bg-gray-700/80 rounded-2xl p-4 pr-6 border border-gray-100 dark:border-gray-700 hover:border-gray-200 dark:hover:border-gray-600 hover:shadow-xl hover:shadow-gray-200/50 dark:hover:shadow-gray-950/50 transition-all duration-300"
               >
                 {/* Thumbnail */}
                 <div className="relative w-24 h-24 shrink-0 rounded-xl overflow-hidden">
@@ -136,20 +136,20 @@ const Categories = () => {
 
                 {/* Copy */}
                 <div className="flex-1 min-w-0">
-                  <h3 className="font-bold text-gray-900 text-lg group-hover:text-emerald-600 transition-colors">
+                  <h3 className="font-bold text-gray-900 dark:text-white text-lg group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
                     {cat.name}
                   </h3>
-                  <p className="text-gray-400 text-sm mt-0.5">{cat.tagline}</p>
+                  <p className="text-gray-400 dark:text-gray-500 text-sm mt-0.5">{cat.tagline}</p>
                   <div className="mt-2">
-                    <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${cat.accentLight}`}>
+                    <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${cat.accentLight} dark:bg-white/10 dark:text-gray-300`}>
                       {count} {count === 1 ? "Tour" : "Tours"}
                     </span>
                   </div>
                 </div>
 
                 {/* Arrow */}
-                <div className="w-9 h-9 rounded-full bg-gray-100 group-hover:bg-emerald-500 flex items-center justify-center transition-all duration-300 shrink-0 group-hover:shadow-lg group-hover:shadow-emerald-200">
-                  <FaArrowRight className="text-xs text-gray-400 group-hover:text-white transition-colors" />
+                <div className="w-9 h-9 rounded-full bg-gray-100 dark:bg-gray-700 group-hover:bg-emerald-500 flex items-center justify-center transition-all duration-300 shrink-0 group-hover:shadow-lg group-hover:shadow-emerald-200 dark:group-hover:shadow-emerald-900/50">
+                  <FaArrowRight className="text-xs text-gray-400 dark:text-gray-500 group-hover:text-white transition-colors" />
                 </div>
               </Link>
             );

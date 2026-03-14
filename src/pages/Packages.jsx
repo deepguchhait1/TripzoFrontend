@@ -147,7 +147,7 @@ const Packages = () => {
       </section>
 
       {/* Content */}
-      <section className="py-10">
+      <section className="py-10 bg-white dark:bg-gray-900 transition-colors">
         <div className="max-w-7xl mx-auto px-4">
           {/* ─── Top bar ─── */}
           <div className="flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-between mb-6">

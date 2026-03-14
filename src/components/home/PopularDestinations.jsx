@@ -16,7 +16,7 @@ const PopularDestinations = () => {
 
   if (loading) {
     return (
-      <section className="py-24 bg-gray-50/60">
+      <section className="py-24 bg-gray-50/60 dark:bg-gray-900/80">
         <div className="flex items-center justify-center h-64">
           <div className="animate-spin h-10 w-10 border-4 border-emerald-500 border-t-transparent rounded-full" />
         </div>
@@ -27,29 +27,29 @@ const PopularDestinations = () => {
   if (popular.length === 0) return null;
 
   return (
-    <section className="py-24 bg-gray-50/60 relative overflow-hidden">
+    <section className="py-24 bg-gray-50/60 dark:bg-gray-900/80 relative overflow-hidden transition-colors">
       {/* Decorative blobs */}
-      <div className="absolute top-20 left-0 w-80 h-80 bg-emerald-100 rounded-full blur-3xl opacity-40 -translate-x-1/2" />
-      <div className="absolute bottom-20 right-0 w-96 h-96 bg-cyan-100 rounded-full blur-3xl opacity-30 translate-x-1/3" />
+      <div className="absolute top-20 left-0 w-80 h-80 bg-emerald-100 dark:bg-emerald-900/30 rounded-full blur-3xl opacity-40 -translate-x-1/2" />
+      <div className="absolute bottom-20 right-0 w-96 h-96 bg-cyan-100 dark:bg-cyan-900/20 rounded-full blur-3xl opacity-30 translate-x-1/3" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
           <div>
-            <div className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-600 rounded-full px-4 py-1.5 text-sm font-semibold mb-4">
+            <div className="inline-flex items-center gap-2 bg-emerald-50 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400 rounded-full px-4 py-1.5 text-sm font-semibold mb-4">
               <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full" />
               Explore India
             </div>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">
-              Popular <span className="text-emerald-600">Destinations</span>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">
+              Popular <span className="text-emerald-600 dark:text-emerald-400">Destinations</span>
             </h2>
-            <p className="text-gray-500 mt-3 max-w-lg text-lg">
+            <p className="text-gray-500 dark:text-gray-400 mt-3 max-w-lg text-lg">
               The most sought-after destinations from majestic forts to serene beaches.
             </p>
           </div>
           <Link
             to="/destinations"
-            className="group inline-flex items-center gap-2 bg-gray-900 text-white px-7 py-3.5 rounded-2xl font-semibold hover:bg-emerald-600 transition-all duration-300 shrink-0 hover:shadow-xl hover:shadow-emerald-200"
+            className="group inline-flex items-center gap-2 bg-gray-900 dark:bg-gray-800 text-white px-7 py-3.5 rounded-2xl font-semibold hover:bg-emerald-600 dark:hover:bg-emerald-500 transition-all duration-300 shrink-0 hover:shadow-xl hover:shadow-emerald-200 dark:hover:shadow-emerald-900/30"
           >
             View All
             <FaArrowRight className="text-sm group-hover:translate-x-1 transition-transform" />

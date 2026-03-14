@@ -100,7 +100,7 @@ const Contact = () => {
       </section>
 
       {/* Contact Info Cards */}
-      <section className="py-16">
+      <section className="py-16 bg-white dark:bg-gray-900 transition-colors">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 -mt-24 relative z-10">
             {[
@@ -135,7 +135,7 @@ const Contact = () => {
             ].map((card, i) => (
               <div
                 key={i}
-                className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 text-center hover:shadow-xl transition-all"
+                className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-gray-700 text-center hover:shadow-xl transition-all"
               >
                 <div
                   className={`w-14 h-14 rounded-xl ${card.color} flex items-center justify-center mx-auto mb-4`}

@@ -16,7 +16,7 @@ const BlogSection = () => {
 
   if (loading) {
     return (
-      <section className="py-24 bg-gray-50/60">
+      <section className="py-24 bg-gray-50/60 dark:bg-gray-900/80">
         <div className="flex items-center justify-center h-64">
           <div className="animate-spin h-10 w-10 border-4 border-emerald-500 border-t-transparent rounded-full" />
         </div>
@@ -29,21 +29,21 @@ const BlogSection = () => {
   const [featured, ...rest] = blogPosts;
 
   return (
-    <section className="py-24 bg-gray-50/60 relative overflow-hidden">
-      <div className="absolute bottom-0 right-0 w-80 h-80 bg-emerald-50 rounded-full blur-3xl opacity-40 translate-x-1/3 translate-y-1/3" />
+    <section className="py-24 bg-gray-50/60 dark:bg-gray-900/80 relative overflow-hidden transition-colors">
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-emerald-50 dark:bg-emerald-900/20 rounded-full blur-3xl opacity-40 translate-x-1/3 translate-y-1/3" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
           <div>
-            <div className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-600 rounded-full px-4 py-1.5 text-sm font-semibold mb-4">
+            <div className="inline-flex items-center gap-2 bg-emerald-50 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400 rounded-full px-4 py-1.5 text-sm font-semibold mb-4">
               <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full" />
               Travel Blog
             </div>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">
-              Tips & <span className="text-emerald-600">Stories</span>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">
+              Tips & <span className="text-emerald-600 dark:text-emerald-400">Stories</span>
             </h2>
-            <p className="text-gray-500 mt-3 max-w-lg text-lg">
+            <p className="text-gray-500 dark:text-gray-400 mt-3 max-w-lg text-lg">
               Expert advice, destination guides, and inspiring stories from fellow travelers.
             </p>
           </div>
@@ -93,7 +93,7 @@ const BlogSection = () => {
             {rest.map((post) => (
               <article
                 key={post._id || post.id}
-                className="group flex gap-5 bg-white rounded-2xl border border-gray-100 hover:border-emerald-200 hover:shadow-xl hover:shadow-emerald-100/30 transition-all duration-500 overflow-hidden h-full"
+                className="group flex gap-5 bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 hover:border-emerald-200 dark:hover:border-emerald-700 hover:shadow-xl hover:shadow-emerald-100/30 dark:hover:shadow-emerald-900/20 transition-all duration-500 overflow-hidden h-full"
               >
                 <div className="relative w-44 shrink-0 overflow-hidden">
                   <img
@@ -106,7 +106,7 @@ const BlogSection = () => {
                   </span>
                 </div>
                 <div className="py-5 pr-5 flex flex-col justify-center min-w-0">
-                  <div className="flex items-center gap-3 text-gray-400 text-xs mb-2">
+                  <div className="flex items-center gap-3 text-gray-400 dark:text-gray-500 text-xs mb-2">
                     <span className="flex items-center gap-1">
                       <FaCalendarAlt className="text-[10px]" /> {post.date}
                     </span>
@@ -114,15 +114,15 @@ const BlogSection = () => {
                       <FaClock className="text-[10px]" /> {post.readTime}
                     </span>
                   </div>
-                  <h3 className="text-base font-bold text-gray-900 mb-1.5 group-hover:text-emerald-600 transition-colors line-clamp-2 leading-snug">
+                  <h3 className="text-base font-bold text-gray-900 dark:text-white mb-1.5 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors line-clamp-2 leading-snug">
                     {post.title}
                   </h3>
-                  <p className="text-gray-400 text-sm leading-relaxed line-clamp-2 mb-3">
+                  <p className="text-gray-400 dark:text-gray-500 text-sm leading-relaxed line-clamp-2 mb-3">
                     {post.excerpt}
                   </p>
                   <Link
                     to="#"
-                    className="inline-flex items-center gap-1.5 text-emerald-600 font-semibold text-sm hover:gap-2.5 transition-all"
+                    className="inline-flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 font-semibold text-sm hover:gap-2.5 transition-all"
                   >
                     Read More <FaArrowRight className="text-[10px]" />
                   </Link>

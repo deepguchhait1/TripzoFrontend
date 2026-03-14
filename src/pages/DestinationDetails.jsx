@@ -180,7 +180,7 @@ const DestinationDetails = () => {
 
       {/* Photo Gallery */}
       {allImages.length > 1 && (
-        <section className="bg-gray-50 border-b border-gray-100">
+        <section className="bg-gray-50 dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800">
           <div className="max-w-7xl mx-auto px-4 py-6">
             <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-4 flex items-center gap-2">
               <FaImages className="text-emerald-500" /> Photo Gallery
@@ -207,13 +207,13 @@ const DestinationDetails = () => {
       )}
 
       {/* Content */}
-      <section className="py-12">
+      <section className="py-12 bg-white dark:bg-gray-900 transition-colors">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid lg:grid-cols-3 gap-10">
             {/* Main Content */}
             <div className="lg:col-span-2 space-y-10">
               {/* About */}
-              <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8">
+              <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 p-8">
                 <h2 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
                   <FaMapMarkerAlt className="text-emerald-500" />
                   About {dest.name}
@@ -224,7 +224,7 @@ const DestinationDetails = () => {
               </div>
 
               {/* Quick Info */}
-              <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8">
+              <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 p-8">
                 <h2 className="text-xl font-bold text-gray-800 mb-5 flex items-center gap-2">
                   <FaCalendarAlt className="text-emerald-500" />
                   Quick Information
@@ -270,7 +270,7 @@ const DestinationDetails = () => {
               </div>
 
               {/* Best For */}
-              <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8">
+              <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 p-8">
                 <h2 className="text-xl font-bold text-gray-800 mb-5 flex items-center gap-2">
                   <FaCamera className="text-emerald-500" />
                   Perfect For
@@ -296,7 +296,7 @@ const DestinationDetails = () => {
               </div>
 
               {/* Travel Tips */}
-              <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8">
+              <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 p-8">
                 <h2 className="text-xl font-bold text-gray-800 mb-5 flex items-center gap-2">
                   <FaCheckCircle className="text-emerald-500" />
                   Travel Tips
@@ -427,7 +427,7 @@ const DestinationDetails = () => {
                   <Link
                     key={rDest._id || rDest.id}
                     to={`/destinations/${rDest._id || rDest.id}`}
-                    className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 group"
+                    className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-700 group"
                   >
                     <div className="relative h-52 overflow-hidden">
                       <img

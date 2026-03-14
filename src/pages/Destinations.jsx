@@ -169,7 +169,7 @@ const Destinations = () => {
       </section>
 
       {/* Main Content */}
-      <section className="py-10">
+      <section className="py-10 bg-white dark:bg-gray-900 transition-colors">
         <div className="max-w-7xl mx-auto px-4">
           {/* ─── Top bar: search + sort + filter toggle ─── */}
           <div className="flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-between mb-6">
@@ -181,7 +181,7 @@ const Destinations = () => {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search by name, state, category..."
-                className="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 outline-none transition text-sm"
+                className="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 dark:focus:ring-emerald-900/50 outline-none transition text-sm"
               />
               {search && (
                 <button
@@ -200,7 +200,7 @@ const Destinations = () => {
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
-                  className="pl-9 pr-8 py-3 rounded-xl border border-gray-200 focus:border-emerald-500 outline-none text-gray-700 text-sm appearance-none bg-white cursor-pointer"
+                  className="pl-9 pr-8 py-3 rounded-xl border border-gray-200 dark:border-gray-600 focus:border-emerald-500 outline-none text-gray-700 dark:text-gray-200 text-sm appearance-none bg-white dark:bg-gray-800 cursor-pointer"
                 >
                   <option value="popular">Most Popular</option>
                   <option value="rating">Highest Rated</option>
@@ -215,8 +215,8 @@ const Destinations = () => {
                 onClick={() => setShowFilters(!showFilters)}
                 className={`flex items-center gap-2 px-5 py-3 rounded-xl border font-medium text-sm transition-all ${
                   showFilters || activeFilterCount > 0
-                    ? "bg-emerald-50 border-emerald-300 text-emerald-700"
-                    : "bg-white border-gray-200 text-gray-700 hover:border-gray-300"
+                    ? "bg-emerald-50 dark:bg-emerald-900/40 border-emerald-300 dark:border-emerald-700 text-emerald-700 dark:text-emerald-300"
+                    : "bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-600 text-gray-700 dark:text-gray-200 hover:border-gray-300 dark:hover:border-gray-500"
                 }`}
               >
                 <FaSlidersH className="text-xs" />
@@ -245,7 +245,7 @@ const Destinations = () => {
               showFilters ? "max-h-[500px] opacity-100 mb-8" : "max-h-0 opacity-0"
             }`}
           >
-            <div className="bg-gray-50 rounded-2xl border border-gray-100 p-6">
+            <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 p-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {/* State filter */}
                 <div>
@@ -255,7 +255,7 @@ const Destinations = () => {
                   <select
                     value={selectedState}
                     onChange={(e) => setSelectedState(e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-emerald-500 outline-none text-sm text-gray-700 bg-white"
+                    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 dark:border-gray-600 focus:border-emerald-500 outline-none text-sm text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800"
                   >
                     <option value="all">All States</option>
                     {states.map((s) => (
@@ -272,7 +272,7 @@ const Destinations = () => {
                   <select
                     value={minRating}
                     onChange={(e) => setMinRating(e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-emerald-500 outline-none text-sm text-gray-700 bg-white"
+                    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 dark:border-gray-600 focus:border-emerald-500 outline-none text-sm text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800"
                   >
                     {ratingOptions.map((r) => (
                       <option key={r.value} value={r.value}>{r.label}</option>
@@ -372,7 +372,7 @@ const Destinations = () => {
                 <Link
                   to={`/destinations/${dest._id || dest.id}`}
                   key={dest._id || dest.id}
-                  className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-gray-100"
+                  className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-gray-100 dark:border-gray-700"
                 >
                   <div className="relative overflow-hidden h-56">
                     <img

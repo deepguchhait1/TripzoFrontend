@@ -16,7 +16,7 @@ const TourPackages = () => {
 
   if (loading) {
     return (
-      <section className="py-24">
+      <section className="py-24 bg-white dark:bg-gray-900">
         <div className="flex items-center justify-center h-64">
           <div className="animate-spin h-10 w-10 border-4 border-emerald-500 border-t-transparent rounded-full" />
         </div>
@@ -27,21 +27,21 @@ const TourPackages = () => {
   if (packages.length === 0) return null;
 
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
+    <section className="py-24 bg-white dark:bg-gray-900 relative overflow-hidden transition-colors">
       {/* Background accent */}
-      <div className="absolute top-0 inset-x-0 h-1/2 bg-gradient-to-b from-gray-50/80 to-transparent" />
+      <div className="absolute top-0 inset-x-0 h-1/2 bg-gradient-to-b from-gray-50/80 dark:from-gray-800/50 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Header */}
         <div className="text-center mb-14">
-          <div className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-600 rounded-full px-4 py-1.5 text-sm font-semibold mb-4">
+          <div className="inline-flex items-center gap-2 bg-emerald-50 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400 rounded-full px-4 py-1.5 text-sm font-semibold mb-4">
             <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full" />
             Best Offers
           </div>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">
-            Trending Tour <span className="text-emerald-600">Packages</span>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">
+            Trending Tour <span className="text-emerald-600 dark:text-emerald-400">Packages</span>
           </h2>
-          <p className="text-gray-500 mt-4 max-w-2xl mx-auto text-lg">
+          <p className="text-gray-500 dark:text-gray-400 mt-4 max-w-2xl mx-auto text-lg">
             Hand-picked packages with the best prices and unforgettable experiences.
           </p>
         </div>
@@ -56,7 +56,7 @@ const TourPackages = () => {
               <Link
                 to={`/packages/${pkg._id || pkg.id}`}
                 key={pkg._id || pkg.id}
-                className="group bg-white rounded-3xl overflow-hidden border border-gray-100 hover:border-emerald-200 hover:shadow-2xl hover:shadow-emerald-100/50 transition-all duration-500 flex flex-col"
+                className="group bg-white dark:bg-gray-800 rounded-3xl overflow-hidden border border-gray-100 dark:border-gray-700 hover:border-emerald-200 dark:hover:border-emerald-700 hover:shadow-2xl hover:shadow-emerald-100/50 dark:hover:shadow-emerald-900/20 transition-all duration-500 flex flex-col"
               >
                 {/* Image */}
                 <div className="relative overflow-hidden h-60">
@@ -75,27 +75,27 @@ const TourPackages = () => {
                       </span>
                     )}
                   </div>
-                  <div className="absolute top-4 right-4 flex items-center gap-1.5 bg-white/95 shadow-sm px-2.5 py-1.5 rounded-xl">
+                  <div className="absolute top-4 right-4 flex items-center gap-1.5 bg-white/95 dark:bg-gray-800/95 shadow-sm px-2.5 py-1.5 rounded-xl">
                     <FaStar className="text-amber-400 text-xs" />
-                    <span className="text-sm font-bold text-gray-800">
+                    <span className="text-sm font-bold text-gray-800 dark:text-gray-200">
                       {pkg.rating}
                     </span>
                   </div>
 
                   {/* Duration pill at bottom of image */}
-                  <div className="absolute bottom-4 left-4 flex items-center gap-1.5 bg-white/95 shadow-sm px-3 py-1.5 rounded-xl">
+                  <div className="absolute bottom-4 left-4 flex items-center gap-1.5 bg-white/95 dark:bg-gray-800/95 shadow-sm px-3 py-1.5 rounded-xl">
                     <FaClock className="text-emerald-500 text-xs" />
-                    <span className="text-sm font-semibold text-gray-700">{pkg.duration}</span>
+                    <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">{pkg.duration}</span>
                   </div>
                 </div>
 
                 {/* Content */}
                 <div className="p-6 flex-1 flex flex-col">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-emerald-600 transition-colors leading-snug">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors leading-snug">
                     {pkg.title}
                   </h3>
 
-                  <div className="flex items-center gap-1.5 text-gray-400 text-sm mb-4">
+                  <div className="flex items-center gap-1.5 text-gray-400 dark:text-gray-500 text-sm mb-4">
                     <FaMapMarkerAlt className="text-emerald-500 text-xs" />
                     <p className="truncate">{pkg.destinations?.join(" → ")}</p>
                   </div>
@@ -105,7 +105,7 @@ const TourPackages = () => {
                     {pkg.highlights?.slice(0, 3).map((h, i) => (
                       <span
                         key={i}
-                        className="text-xs bg-gray-100 text-gray-600 px-2.5 py-1 rounded-lg font-medium"
+                        className="text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 px-2.5 py-1 rounded-lg font-medium"
                       >
                         {h}
                       </span>
@@ -113,7 +113,7 @@ const TourPackages = () => {
                   </div>
 
                   {/* Included */}
-                  <div className="flex flex-wrap gap-x-4 gap-y-1.5 mb-5 text-sm text-gray-500">
+                  <div className="flex flex-wrap gap-x-4 gap-y-1.5 mb-5 text-sm text-gray-500 dark:text-gray-400">
                     {pkg.included?.map((item, i) => (
                       <span key={i} className="flex items-center gap-1.5">
                         <FaCheckCircle className="text-emerald-500 text-[11px]" />
@@ -123,19 +123,19 @@ const TourPackages = () => {
                   </div>
 
                   {/* Price & CTA */}
-                  <div className="mt-auto flex items-end justify-between pt-5 border-t border-gray-100">
+                  <div className="mt-auto flex items-end justify-between pt-5 border-t border-gray-100 dark:border-gray-700">
                     <div>
                       {pkg.originalPrice && (
-                        <span className="text-gray-400 line-through text-sm block mb-0.5">
+                        <span className="text-gray-400 dark:text-gray-500 line-through text-sm block mb-0.5">
                           ₹{pkg.originalPrice.toLocaleString()}
                         </span>
                       )}
-                      <span className="text-2xl font-extrabold text-gray-900">
+                      <span className="text-2xl font-extrabold text-gray-900 dark:text-white">
                         ₹{pkg.price?.toLocaleString()}
                       </span>
-                      <span className="text-gray-400 text-xs ml-1">/ person</span>
+                      <span className="text-gray-400 dark:text-gray-500 text-xs ml-1">/ person</span>
                     </div>
-                    <span className="inline-flex items-center gap-2 bg-emerald-500 text-white px-5 py-2.5 rounded-xl font-semibold text-sm group-hover:bg-emerald-600 transition-colors shadow-sm">
+                    <span className="inline-flex items-center gap-2 bg-emerald-500 dark:bg-emerald-600 text-white px-5 py-2.5 rounded-xl font-semibold text-sm group-hover:bg-emerald-600 dark:group-hover:bg-emerald-500 transition-colors shadow-sm">
                       Details
                       <FaArrowRight className="text-xs group-hover:translate-x-0.5 transition-transform" />
                     </span>
@@ -150,7 +150,7 @@ const TourPackages = () => {
         <div className="text-center mt-14">
           <Link
             to="/packages"
-            className="group inline-flex items-center gap-2 border-2 border-gray-900 text-gray-900 px-8 py-3.5 rounded-2xl font-semibold hover:bg-gray-900 hover:text-white transition-all duration-300"
+            className="group inline-flex items-center gap-2 border-2 border-gray-900 dark:border-gray-200 text-gray-900 dark:text-white px-8 py-3.5 rounded-2xl font-semibold hover:bg-gray-900 dark:hover:bg-gray-200 hover:text-white dark:hover:text-gray-900 transition-all duration-300"
           >
             View All Packages
             <FaArrowRight className="group-hover:translate-x-1 transition-transform" />

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "react-hot-toast";
 import { AuthProvider, useAuth } from "./context/AuthContext";
+import { ThemeProvider } from "./context/ThemeContext";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
@@ -52,8 +53,9 @@ const ProtectedRoute = ({ children }) => {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <AuthProvider>
-        <Router>
+      <ThemeProvider>
+        <AuthProvider>
+          <Router>
           <ScrollToTop />
           <Toaster position="top-center" toastOptions={{ duration: 3000 }} />
           <Suspense fallback={<PageLoader />}>
@@ -62,7 +64,7 @@ function App() {
             <Route
               path="/*"
               element={
-                <div className="min-h-screen flex flex-col">
+                <div id="app-public" className="min-h-screen flex flex-col bg-white dark:bg-gray-900 transition-colors">
                   <Navbar />
                   <main className="flex-1">
                     <Routes>
@@ -107,8 +109,9 @@ function App() {
             </Route>
           </Routes>
           </Suspense>
-        </Router>
-      </AuthProvider>
+          </Router>
+        </AuthProvider>
+      </ThemeProvider>
     </QueryClientProvider>
   );
 }

@@ -197,19 +197,19 @@ const Booking = () => {
           </div>
         </section>
 
-        <section className="py-20">
+        <section className="py-20 bg-white dark:bg-gray-900 transition-colors">
           <div className="max-w-2xl mx-auto px-4 text-center">
-            <div className="bg-white rounded-3xl shadow-xl p-10 border border-gray-100">
-              <div className="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <FaCheckCircle className="text-emerald-600 text-4xl" />
+            <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-10 border border-gray-100 dark:border-gray-700">
+              <div className="w-20 h-20 bg-emerald-100 dark:bg-emerald-900/50 rounded-full flex items-center justify-center mx-auto mb-6">
+                <FaCheckCircle className="text-emerald-600 dark:text-emerald-400 text-4xl" />
               </div>
-              <h2 className="text-3xl font-bold text-gray-800 mb-3">
+              <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-3">
                 Thank You!
               </h2>
-              <p className="text-gray-600 mb-3 text-lg">
+              <p className="text-gray-600 dark:text-gray-400 mb-3 text-lg">
                 Your booking request has been submitted successfully.
               </p>
-              <p className="text-gray-500 mb-8">
+              <p className="text-gray-500 dark:text-gray-400 mb-8">
                 Our travel experts will review your request and contact you
                 within 24 hours with a personalized itinerary and payment
                 details.
@@ -269,7 +269,7 @@ const Booking = () => {
         </div>
       </section>
 
-      <section className="py-14">
+      <section className="py-14 bg-white dark:bg-gray-900 transition-colors">
         <div className="max-w-7xl mx-auto px-4">
 
           {/* Your Selection - Destination & Package Cards */}

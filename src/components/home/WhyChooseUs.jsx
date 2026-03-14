@@ -107,10 +107,10 @@ const WhyChooseUs = () => {
   const revCount = useCounter(stats?.testimonials || 0, 1400, visible);
 
   return (
-    <section className="py-24 bg-gray-50/60 relative overflow-hidden">
+    <section className="py-24 bg-gray-50/60 dark:bg-gray-900/80 relative overflow-hidden transition-colors">
       {/* Subtle dot pattern */}
       <div
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.03] dark:opacity-[0.06]"
         style={{
           backgroundImage: "radial-gradient(circle, #000 1px, transparent 1px)",
           backgroundSize: "24px 24px",
@@ -120,14 +120,14 @@ const WhyChooseUs = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-600 rounded-full px-4 py-1.5 text-sm font-semibold mb-4">
+          <div className="inline-flex items-center gap-2 bg-emerald-50 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400 rounded-full px-4 py-1.5 text-sm font-semibold mb-4">
             <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full" />
             Why Tripzo
           </div>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">
-            Why Travelers <span className="text-emerald-600">Choose Us</span>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">
+            Why Travelers <span className="text-emerald-600 dark:text-emerald-400">Choose Us</span>
           </h2>
-          <p className="text-gray-500 mt-4 max-w-2xl mx-auto text-lg">
+          <p className="text-gray-500 dark:text-gray-400 mt-4 max-w-2xl mx-auto text-lg">
             We're committed to making your travel dreams come true with
             unmatched service and expertise.
           </p>
@@ -138,20 +138,20 @@ const WhyChooseUs = () => {
           {features.map((feat, i) => (
             <div
               key={i}
-              className="group bg-white rounded-2xl p-7 border border-gray-100 hover:border-emerald-200 hover:shadow-xl hover:shadow-emerald-100/30 transition-all duration-500 relative overflow-hidden"
+              className="group bg-white dark:bg-gray-800 rounded-2xl p-7 border border-gray-100 dark:border-gray-700 hover:border-emerald-200 dark:hover:border-emerald-700 hover:shadow-xl hover:shadow-emerald-100/30 dark:hover:shadow-emerald-900/20 transition-all duration-500 relative overflow-hidden"
             >
               {/* Hover accent line */}
               <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${feat.gradient} scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`} />
 
               <div
-                className={`w-12 h-12 rounded-xl ${feat.bg} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300`}
+                className={`w-12 h-12 rounded-xl ${feat.bg} dark:bg-white/10 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300`}
               >
-                <feat.icon className={`text-xl ${feat.iconColor}`} />
+                <feat.icon className={`text-xl ${feat.iconColor} dark:text-emerald-400`} />
               </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
                 {feat.title}
               </h3>
-              <p className="text-gray-500 text-sm leading-relaxed">
+              <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
                 {feat.description}
               </p>
             </div>

@@ -49,7 +49,7 @@ const Footer = () => {
     }
   };
   return (
-    <footer className="bg-gray-900 text-gray-300">
+    <footer className="bg-gray-900 dark:bg-gray-950 text-gray-300 dark:text-gray-400">
       {/* Newsletter */}
       <div className="bg-emerald-600">
         <div className="max-w-7xl mx-auto px-4 py-12">
@@ -198,9 +198,9 @@ const Footer = () => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-gray-800">
+      <div className="border-t border-gray-800 dark:border-gray-800">
         <div className="max-w-7xl mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-500 text-sm">
+          <p className="text-gray-500 dark:text-gray-500 text-sm">
             © 2026 Tripzo. All rights reserved. Made with ❤️ in India.
           </p>
           <div className="flex gap-6 text-sm text-gray-500">

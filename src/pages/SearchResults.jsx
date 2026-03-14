@@ -112,7 +112,7 @@ const SearchResults = () => {
   return (
     <>
       {/* Header */}
-      <section className="bg-gray-50 border-b border-gray-100">
+      <section className="bg-gray-50 dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800">
         <div className="max-w-7xl mx-auto px-4 py-10">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
             Search Results
@@ -163,7 +163,7 @@ const SearchResults = () => {
       </section>
 
       {/* Main */}
-      <section className="py-8">
+      <section className="py-8 bg-white dark:bg-gray-900 transition-colors">
         <div className="max-w-7xl mx-auto px-4">
           {/* Controls */}
           <div className="flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-between mb-6">
@@ -294,7 +294,7 @@ const SearchResults = () => {
                   <Link
                     to={`/destinations/${dest._id}`}
                     key={dest._id}
-                    className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-gray-100"
+                    className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-gray-100 dark:border-gray-700"
                   >
                     <div className="relative overflow-hidden h-48">
                       <img src={dest.image} alt={dest.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
@@ -344,7 +344,7 @@ const SearchResults = () => {
               </div>
               <div className="space-y-5">
                 {(activeTab === "all" ? packages.slice(0, 3) : packages).map((pkg) => (
-                  <div key={pkg._id} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all border border-gray-100 flex flex-col md:flex-row">
+                  <div key={pkg._id} className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all border border-gray-100 dark:border-gray-700 flex flex-col md:flex-row">
                     <div className="relative md:w-80 h-52 md:h-auto shrink-0 overflow-hidden">
                       <img src={pkg.image} alt={pkg.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
                       {pkg.originalPrice > pkg.price && (

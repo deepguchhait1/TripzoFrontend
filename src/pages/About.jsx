@@ -87,17 +87,17 @@ const About = () => {
       </section>
 
       {/* Story Section */}
-      <section className="py-20">
+      <section className="py-20 bg-white dark:bg-gray-900 transition-colors">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <span className="text-emerald-600 font-semibold text-sm uppercase tracking-wider">
+              <span className="text-emerald-600 dark:text-emerald-400 font-semibold text-sm uppercase tracking-wider">
                 Our Story
               </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mt-2 mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mt-2 mb-6">
                 Making Travel Dreams Come True Since 2018
               </h2>
-              <p className="text-gray-600 leading-relaxed mb-4">
+              <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
                 Tripzo was born from a simple idea - that every person deserves to experience the
                 incredible diversity and beauty that India has to offer. Founded in 2018, we started
                 as a small team of passionate travelers who wanted to share our love for India's
@@ -165,15 +165,15 @@ const About = () => {
             {values.map((val, i) => (
               <div
                 key={i}
-                className="group relative bg-white rounded-3xl p-8 shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-emerald-200 hover:-translate-y-2"
+                className="group relative bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 dark:border-gray-700 hover:border-emerald-200 dark:hover:border-emerald-700 hover:-translate-y-2"
               >
                 <div className="absolute top-0 right-0 w-24 h-24 bg-emerald-50 rounded-bl-[4rem] rounded-tr-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="relative">
                   <div className="w-14 h-14 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-emerald-200/50 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
                     <val.icon className="text-white text-xl" />
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-3">{val.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">{val.description}</p>
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-3">{val.title}</h3>
+                  <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">{val.description}</p>
                 </div>
                 <div className="mt-6 pt-4 border-t border-gray-100 group-hover:border-emerald-100 transition-colors">
                   <span className="text-emerald-600 text-xs font-bold uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -187,7 +187,7 @@ const About = () => {
       </section>
 
       {/* Team */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white dark:bg-gray-900 transition-colors">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16">
             <div>

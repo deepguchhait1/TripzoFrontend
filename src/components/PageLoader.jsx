@@ -15,9 +15,9 @@ const PageLoader = () => {
   }, []);
 
   return (
-    <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-white">
+    <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-white dark:bg-gray-900 transition-colors">
       {/* Top progress bar */}
-      <div className="absolute top-0 left-0 h-1 w-full bg-emerald-100">
+      <div className="absolute top-0 left-0 h-1 w-full bg-emerald-100 dark:bg-gray-800">
         <div
           className="h-full bg-gradient-to-r from-emerald-400 to-emerald-600 transition-all duration-500 ease-out"
           style={{ width: `${progress}%` }}
@@ -41,7 +41,7 @@ const PageLoader = () => {
 
         {/* Text */}
         <div className="flex flex-col items-center gap-2">
-          <h2 className="text-xl font-semibold text-gray-800 tracking-wide">
+          <h2 className="text-xl font-semibold text-gray-800 dark:text-white tracking-wide">
             Tripzo
           </h2>
           <div className="flex items-center gap-1">
