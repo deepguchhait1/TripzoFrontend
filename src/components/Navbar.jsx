@@ -257,7 +257,6 @@ const Navbar = () => {
                   navigate(item.type === "destination" ? `/destinations/${item._id}` : `/packages/${item._id}`);
                 }}
                 onClose={() => setShowMobileSuggestions(false)}
-                variant="light"
               />
             </form>
             {navLinks.map((link) => (
