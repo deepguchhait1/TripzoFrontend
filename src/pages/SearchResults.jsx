@@ -139,14 +139,14 @@ const SearchResults = () => {
                 <button
                   type="button"
                   onClick={() => { setQuery(""); setSearchParams({}); setDestinations([]); setPackages([]); setShowSuggestions(false); }}
-                  className="absolute right-20 text-gray-400 hover:text-gray-600 z-10"
+                  className="absolute right-20 text-gray-400 dark:text-gray-300 hover:text-gray-600 dark:hover:text-gray-200 z-10"
                 >
                   <FaTimes className="text-xs" />
                 </button>
               )}
               <button
                 type="submit"
-                className="absolute right-1.5 bg-emerald-500 hover:bg-emerald-600 text-white px-5 py-2 rounded-xl font-medium text-sm transition z-10"
+                className="absolute right-1.5 bg-emerald-500 dark:bg-emerald-700 hover:bg-emerald-600 dark:hover:bg-emerald-500 text-white dark:text-gray-200 px-5 py-2 rounded-xl font-medium text-sm transition z-10"
               >
                 Search
               </button>

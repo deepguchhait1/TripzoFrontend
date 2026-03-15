@@ -138,11 +138,11 @@ const Contact = () => {
                 className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-gray-700 text-center hover:shadow-xl transition-all"
               >
                 <div
-                  className={`w-14 h-14 rounded-xl ${card.color} flex items-center justify-center mx-auto mb-4`}
+                  className={`w-14 h-14 rounded-xl ${card.color} flex items-center dark:bg-gray-700 justify-center mx-auto mb-4`}
                 >
                   <card.icon className="text-xl" />
                 </div>
-                <h3 className="font-bold text-gray-800 mb-2">{card.title}</h3>
+                <h3 className="font-bold dark:text-gray-300 text-gray-800 mb-2">{card.title}</h3>
                 <p className="text-gray-600 text-sm">{card.info}</p>
                 <p className="text-gray-400 text-sm">{card.sub}</p>
               </div>
@@ -160,7 +160,7 @@ const Contact = () => {
               <span className="text-emerald-600 font-semibold text-sm uppercase tracking-wider">
                 Get in Touch
               </span>
-              <h2 className="text-3xl font-bold text-gray-800 mt-2 mb-2">
+              <h2 className="dark:text-gray-300 text-3xl font-bold text-gray-800 mt-2 mb-2">
                 Send Us a Message
               </h2>
               <p className="text-gray-500 mb-8">
@@ -171,7 +171,7 @@ const Contact = () => {
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="text-sm font-medium text-gray-700 mb-1 block">
+                    <label className="dark:text-gray-400 text-sm font-medium text-gray-700 mb-1 block">
                       Full Name *
                     </label>
                     <input
@@ -185,7 +185,7 @@ const Contact = () => {
                     />
                   </div>
                   <div>
-                    <label className="text-sm font-medium text-gray-700 mb-1 block">
+                    <label className="dark:text-gray-400 text-sm font-medium text-gray-700 mb-1 block">
                       Email Address *
                     </label>
                     <div className="relative">
@@ -225,7 +225,7 @@ const Contact = () => {
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="text-sm font-medium text-gray-700 mb-1 block">
+                    <label className="dark:text-gray-400 text-sm font-medium text-gray-700 mb-1 block">
                       Phone Number
                     </label>
                     <input
@@ -238,7 +238,7 @@ const Contact = () => {
                     />
                   </div>
                   <div>
-                    <label className="text-sm font-medium text-gray-700 mb-1 block">
+                    <label className="dark:text-gray-400 text-sm font-medium text-gray-700 mb-1 block">
                       Subject *
                     </label>
                     <select
@@ -258,7 +258,7 @@ const Contact = () => {
                   </div>
                 </div>
                 <div>
-                  <label className="text-sm font-medium text-gray-700 mb-1 block">
+                  <label className="dark:text-gray-400 text-sm font-medium text-gray-700 mb-1 block">
                     Message *
                   </label>
                   <textarea

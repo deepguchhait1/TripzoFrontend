@@ -118,11 +118,11 @@ const About = () => {
                   { icon: FaGlobeAsia, value: `${yearsExperience}+`, label: "Years Experience" },
                 ].map((stat, i) => (
                   <div key={i} className="flex items-center gap-3">
-                    <div className="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center shrink-0">
+                    <div className="w-12 h-12 dark:bg-gray-800 bg-emerald-50 rounded-xl flex items-center justify-center shrink-0">
                       <stat.icon className="text-emerald-600 text-xl" />
                     </div>
                     <div>
-                      <div className="font-bold text-gray-800 text-xl">{stat.value}</div>
+                      <div className="font-bold dark:text-gray-400 text-gray-800 text-xl">{stat.value}</div>
                       <div className="text-gray-500 text-sm">{stat.label}</div>
                     </div>
                   </div>
@@ -145,19 +145,19 @@ const About = () => {
       </section>
 
       {/* Values */}
-      <section className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+      <section className="py-24 relative overflow-hidden">
         {/* Decorative background */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-emerald-100/30 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-emerald-100/30 dark:bg-gray-700/30 rounded-full blur-3xl pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 relative">
           <div className="text-center mb-16">
-            <span className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-700 font-semibold text-xs uppercase tracking-widest px-4 py-2 rounded-full border border-emerald-100 mb-4">
+            <span className="inline-flex items-center gap-2 bg-emerald-50 dark:bg-gray-800 text-emerald-700 dark:text-emerald-400 font-semibold text-xs uppercase tracking-widest px-4 py-2 rounded-full border border-emerald-100 dark:border-gray-700 mb-4">
               <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full" />
               Our Values
             </span>
-            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mt-3">
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mt-3">
               What Drives Us
             </h2>
-            <p className="text-gray-500 mt-4 max-w-xl mx-auto">
+            <p className="text-gray-500 dark:text-gray-300 mt-4 max-w-xl mx-auto">
               The principles that guide every journey we craft and every experience we deliver
             </p>
           </div>
@@ -165,18 +165,18 @@ const About = () => {
             {values.map((val, i) => (
               <div
                 key={i}
-                className="group relative bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 dark:border-gray-700 hover:border-emerald-200 dark:hover:border-emerald-700 hover:-translate-y-2"
+                className="group relative bg-white dark:bg-gray-900 rounded-3xl p-8 shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 dark:border-gray-700 hover:border-emerald-200 dark:hover:border-emerald-700 hover:-translate-y-2"
               >
-                <div className="absolute top-0 right-0 w-24 h-24 bg-emerald-50 rounded-bl-[4rem] rounded-tr-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute top-0 right-0 w-24 h-24 bg-emerald-50 dark:bg-gray-800 rounded-bl-[4rem] rounded-tr-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="relative">
-                  <div className="w-14 h-14 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-emerald-200/50 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                  <div className="w-14 h-14 bg-gradient-to-br from-emerald-500 to-teal-600 dark:bg-gradient-to-br dark:from-emerald-700 dark:to-teal-900 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-emerald-200/50 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
                     <val.icon className="text-white text-xl" />
                   </div>
                   <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-3">{val.title}</h3>
-                  <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">{val.description}</p>
+                  <p className="text-gray-500 dark:text-gray-300 text-sm leading-relaxed">{val.description}</p>
                 </div>
-                <div className="mt-6 pt-4 border-t border-gray-100 group-hover:border-emerald-100 transition-colors">
-                  <span className="text-emerald-600 text-xs font-bold uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="mt-6 pt-4 border-t border-gray-100 dark:border-gray-700 group-hover:border-emerald-100 dark:group-hover:border-emerald-700 transition-colors">
+                  <span className="text-emerald-600 dark:text-emerald-400 text-xs font-bold uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     Learn more →
                   </span>
                 </div>
@@ -191,10 +191,11 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16">
             <div>
-              <span className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-700 font-semibold text-xs uppercase tracking-widest px-4 py-2 rounded-full border border-emerald-100 mb-4">
-                <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full" />
-                Our Team
-              </span>
+             
+              <span className="inline-flex items-center gap-2 bg-emerald-50 dark:bg-gray-800 text-emerald-700 dark:text-emerald-400 font-semibold text-xs uppercase tracking-widest px-4 py-2 rounded-full border border-emerald-100 dark:border-gray-700 mb-4">
+              <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full" />
+              Our Team
+            </span>
               <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mt-3">
                 Meet the Experts
               </h2>
@@ -228,19 +229,19 @@ const About = () => {
                   <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
                     <div className="flex gap-3">
                       {["#", "#", "#"].map((_, si) => (
-                        <div key={si} className="w-9 h-9 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white text-xs hover:bg-emerald-500 transition-colors cursor-pointer border border-white/10">
+                        <div key={si} className="w-9 h-9 dark:bg-gray-900 dark:border-[#00BC7D] bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white text-xs hover:bg-emerald-500 transition-colors cursor-pointer border border-white/10">
                           {["in", "tw", "ig"][si]}
                         </div>
                       ))}
                     </div>
                   </div>
                   {/* Number badge */}
-                  <div className="absolute top-4 left-4 w-8 h-8 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-xs font-bold text-gray-900 shadow-sm">
+                  <div className="absolute top-4 left-4 w-8 h-8 dark:border-[#00BC7D] dark:border dark:bg-gray-900 dark:text-gray-400 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-xs font-bold text-gray-900 shadow-sm">
                     {String(i + 1).padStart(2, "0")}
                   </div>
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 group-hover:text-emerald-600 transition-colors duration-300">{member.name}</h3>
-                <p className="text-gray-500 text-sm font-medium mt-0.5">{member.role}</p>
+                <h3 className="text-lg font-bold text-gray-900 group-hover:text-emerald-600 transition-colors duration-300 dark:text-[#00BC7D]">{member.name}</h3>
+                <p className="text-gray-500 text-sm font-medium mt-0.5 dark:text-gray-400">{member.role}</p>
               </div>
             ))}
           </div>

@@ -206,7 +206,7 @@ const Booking = () => {
               <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-3">
                 Thank You!
               </h2>
-              <p className="text-gray-600 dark:text-gray-400 mb-3 text-lg">
+              <p className="text-gray-300 dark:text-gray-400 mb-3 text-lg">
                 Your booking request has been submitted successfully.
               </p>
               <p className="text-gray-500 dark:text-gray-400 mb-8">
@@ -217,13 +217,13 @@ const Booking = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   to="/packages"
-                  className="border-2 border-emerald-600 text-emerald-600 px-8 py-3 rounded-full font-semibold hover:bg-emerald-50 transition"
+                  className="border-2 border-emerald-600 dark:border-[#00BC7D] text-emerald-600 dark:text-[#00BC7D] px-8 py-3 rounded-full font-semibold hover:bg-emerald-50 dark:hover:bg-gray-900 transition"
                 >
                   Browse More Packages
                 </Link>
                 <Link
                   to="/"
-                  className="bg-emerald-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-emerald-700 transition"
+                  className="bg-emerald-600 dark:bg-[#00BC7D] text-white dark:text-gray-900 px-8 py-3 rounded-full font-semibold hover:bg-emerald-700 dark:hover:bg-emerald-500 transition"
                 >
                   Back to Home
                 </Link>
@@ -275,54 +275,54 @@ const Booking = () => {
           {/* Your Selection - Destination & Package Cards */}
           {(selectedDestination || selectedPackage) && (
             <div className="mb-10">
-              <h2 className="text-2xl font-bold text-gray-800 mb-5 flex items-center gap-2">
+              <h2 className="text-2xl font-bold text-gray-800 dark:text-[#00BC7D] mb-5 flex items-center gap-2">
                 <FaClipboardList className="text-emerald-500" />
                 Your Selection
               </h2>
               <div className={`grid ${selectedDestination && selectedPackage ? 'sm:grid-cols-2' : 'sm:grid-cols-1'} gap-6`}>
                 {/* Destination Card */}
                 {selectedDestination && (bookingMode === "destination" || bookingMode === "both") && (
-                  <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col">
+                  <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden flex flex-col">
                     <div className="relative h-44 overflow-hidden">
                       <img
                         src={selectedDestination.image}
                         alt={selectedDestination.name}
                         className="w-full h-full object-cover"
                       />
-                      <span className="absolute top-3 left-3 bg-blue-600 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                      <span className="absolute top-3 left-3 bg-[#00BC7D] text-white text-xs font-semibold px-3 py-1 rounded-full">
                         Destination
                       </span>
                     </div>
                     <div className="p-5 flex-1 flex flex-col">
-                      <h3 className="text-lg font-bold text-gray-800 mb-1">
+                      <h3 className="text-lg font-bold text-gray-800 dark:text-[#00BC7D] mb-1">
                         {selectedDestination.name}
                       </h3>
                       <div className="flex flex-wrap items-center gap-3 text-sm text-gray-500 mb-3">
                         <span className="flex items-center gap-1">
-                          <FaMapMarkerAlt className="text-blue-500 text-xs" />
+                          <FaMapMarkerAlt className="text-[#00BC7D] text-xs" />
                           {selectedDestination.state}
                         </span>
                         <span className="flex items-center gap-1">
-                          <FaClock className="text-blue-500 text-xs" />
+                          <FaClock className="text-[#00BC7D] text-xs" />
                           {selectedDestination.duration}
                         </span>
                         <span className="flex items-center gap-1">
                           <FaStar className="text-yellow-500 text-xs" />
                           {selectedDestination.rating}
                         </span>
-                        <span className="capitalize text-xs bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full">
+                        <span className="capitalize text-xs bg-[#00BC7D] text-white px-2 py-0.5 rounded-full">
                           {selectedDestination.category}
                         </span>
                       </div>
                       <div className="mt-auto pt-3 border-t border-gray-100 flex items-center justify-between">
-                        <div className="flex items-center text-blue-600 font-bold text-xl">
+                        <div className="flex items-center text-[#00BC7D] dark:text-[#00BC7D] font-bold text-xl">
                           <FaRupeeSign className="text-base" />
                           {selectedDestination.price?.toLocaleString()}
                           <span className="text-gray-500 text-xs font-normal ml-1">/ person</span>
                         </div>
                         {form.travelers > 1 && (
-                          <span className="text-xs text-gray-500">
-                            {form.travelers} travelers: <strong className="text-gray-800">₹{(selectedDestination.price * form.travelers).toLocaleString()}</strong>
+                          <span className="text-xs text-gray-500 dark:text-gray-300">
+                            {form.travelers} travelers: <strong className="text-gray-800 dark:text-[#00BC7D]">₹{(selectedDestination.price * form.travelers).toLocaleString()}</strong>
                           </span>
                         )}
                       </div>
@@ -332,7 +332,7 @@ const Booking = () => {
 
                 {/* Package Card */}
                 {selectedPackage && (bookingMode === "package" || bookingMode === "both") && (
-                  <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col">
+                  <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden flex flex-col">
                     <div className="relative h-44 overflow-hidden">
                       <img
                         src={selectedPackage.image}
@@ -349,7 +349,7 @@ const Booking = () => {
                       )}
                     </div>
                     <div className="p-5 flex-1 flex flex-col">
-                      <h3 className="text-lg font-bold text-gray-800 mb-1">
+                      <h3 className="text-lg font-bold text-gray-800 dark:text-[#00BC7D] mb-1">
                         {selectedPackage.title}
                       </h3>
                       <div className="flex flex-wrap items-center gap-3 text-sm text-gray-500 mb-3">
@@ -368,18 +368,18 @@ const Booking = () => {
                       </div>
                       <div className="mt-auto pt-3 border-t border-gray-100 flex items-center justify-between">
                         <div>
-                          <span className="text-gray-400 line-through text-sm mr-2">
+                          <span className="text-gray-400 dark:text-gray-300 line-through text-sm mr-2">
                             ₹{selectedPackage.originalPrice?.toLocaleString()}
                           </span>
-                          <span className="text-emerald-600 font-bold text-xl inline-flex items-center">
+                          <span className="text-emerald-600 dark:text-[#00BC7D] font-bold text-xl inline-flex items-center">
                             <FaRupeeSign className="text-base" />
                             {selectedPackage.price?.toLocaleString()}
                           </span>
-                          <span className="text-gray-500 text-xs ml-1">/ person</span>
+                          <span className="text-gray-500 dark:text-gray-300 text-xs ml-1">/ person</span>
                         </div>
                         {form.travelers > 1 && (
-                          <span className="text-xs text-gray-500">
-                            {form.travelers} travelers: <strong className="text-gray-800">₹{(selectedPackage.price * form.travelers).toLocaleString()}</strong>
+                          <span className="text-xs text-gray-500 dark:text-gray-300">
+                            {form.travelers} travelers: <strong className="text-gray-800 dark:text-[#00BC7D]">₹{(selectedPackage.price * form.travelers).toLocaleString()}</strong>
                           </span>
                         )}
                       </div>
@@ -393,11 +393,11 @@ const Booking = () => {
           <div className="grid lg:grid-cols-3 gap-10">
             {/* Booking Form */}
             <div className="lg:col-span-2">
-              <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8 md:p-10">
-                <h2 className="text-2xl font-bold text-gray-800 mb-2">
+              <div className="bg-white dark:bg-gray-900 rounded-3xl shadow-sm border dark:border-[#00BC7D] border-gray-100 p-8 md:p-10">
+                <h2 className="text-2xl font-bold text-gray-800 dark:text-[#00BC7D] mb-2">
                   Booking Details
                 </h2>
-                <p className="text-gray-500 mb-8">
+                <p className="text-gray-500 mb-8 dark:text-gray-400">
                   Please fill in all the required fields to complete your
                   booking request.
                 </p>
@@ -405,13 +405,13 @@ const Booking = () => {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Personal Info */}
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-700 mb-4 flex items-center gap-2">
+                    <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-200 mb-4 flex items-center gap-2">
                       <FaUser className="text-emerald-500" />
                       Personal Information
                     </h3>
                     <div className="grid md:grid-cols-2 gap-5">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                           Full Name <span className="text-red-500">*</span>
                         </label>
                         <input
@@ -421,11 +421,11 @@ const Booking = () => {
                           onChange={handleChange}
                           required
                           placeholder="Enter your full name"
-                          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 outline-none transition"
+                          className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 outline-none transition bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                           Email Address <span className="text-red-500">*</span>
                         </label>
                         <div className="relative">
@@ -447,12 +447,12 @@ const Booking = () => {
                             }}
                             required
                             placeholder="you@email.com"
-                            className={`w-full pl-11 pr-10 py-3 rounded-xl border outline-none transition ${
+                            className={`w-full pl-11 pr-10 py-3 rounded-xl border outline-none transition bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 ${
                               emailTouched && form.email
                                 ? emailError
-                                  ? "border-red-300 focus:border-red-500 focus:ring-2 focus:ring-red-100"
-                                  : "border-emerald-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100"
-                                : "border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100"
+                                  ? "border-red-300 focus:border-red-500 focus:ring-2 focus:ring-red-100 dark:border-red-500"
+                                  : "border-emerald-300 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 dark:border-emerald-500"
+                                : "border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 dark:border-gray-700"
                             }`}
                           />
                           {emailTouched && form.email && (
@@ -470,7 +470,7 @@ const Booking = () => {
                         )}
                       </div>
                       <div className="md:col-span-2">
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                           Phone Number <span className="text-red-500">*</span>
                         </label>
                         <div className="relative">
@@ -482,7 +482,7 @@ const Booking = () => {
                             onChange={handleChange}
                             required
                             placeholder="+91 98765 43210"
-                            className="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 outline-none transition"
+                            className="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 outline-none transition bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100"
                           />
                         </div>
                       </div>
@@ -493,8 +493,8 @@ const Booking = () => {
 
                   {/* Trip Details */}
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-700 mb-4 flex items-center gap-2">
-                      <FaClipboardList className="text-emerald-500" />
+                    <h3 className="text-lg font-semibold dark:text-gray-400 text-gray-700 mb-4 flex items-center gap-2">
+                      <FaClipboardList className="text-emerald-500 " />
                       Trip Details
                     </h3>
                     <div className="grid md:grid-cols-2 gap-5">
@@ -502,7 +502,7 @@ const Booking = () => {
                       {(bookingMode === "destination" || bookingMode === "both") && (
                         <>
                           <div className="md:col-span-2">
-                            <label className="block text-sm font-medium text-gray-700 mb-2">
+                            <label className="dark:text-gray-400 block text-sm font-medium text-gray-700 mb-2">
                               Select Destination{bookingMode === "destination" && <span className="text-red-500"> *</span>}
                             </label>
                             <select
@@ -510,7 +510,7 @@ const Booking = () => {
                               value={form.destinationId}
                               onChange={handleChange}
                               required={bookingMode === "destination"}
-                              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 outline-none transition bg-white"
+                              className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 outline-none transition bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100"
                             >
                               <option value="">-- Choose a destination --</option>
                               {destinations.map((dest) => (
@@ -523,7 +523,7 @@ const Booking = () => {
 
                           {/* Selected Destination Details Card */}
                           {selectedDestination && (
-                            <div className="md:col-span-2 bg-blue-50/60 border border-blue-200 rounded-2xl p-5 flex flex-col sm:flex-row gap-5">
+                            <div className=" md:col-span-2 dark:bg-gray-800 dark:border-[#00BC7D] bg-blue-50/60 border border-blue-200 rounded-2xl p-5 flex flex-col sm:flex-row gap-5">
                               <img
                                 src={selectedDestination.image}
                                 alt={selectedDestination.name}
@@ -533,29 +533,29 @@ const Booking = () => {
                                 <h4 className="text-base font-bold text-gray-800 mb-1 truncate">
                                   {selectedDestination.name}
                                 </h4>
-                                <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-gray-600 mb-2">
-                                  <span className="flex items-center gap-1">
-                                    <FaMapMarkerAlt className="text-blue-500 text-xs" />
+                                <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-gray-300 mb-2">
+                                  <span className="flex items-center gap-1 text-gray-500 dark:text-gray-300">
+                                    <FaMapMarkerAlt className="text-[#00BC7D] text-xs" />
                                     {selectedDestination.state}
                                   </span>
-                                  <span className="flex items-center gap-1">
-                                    <FaClock className="text-blue-500 text-xs" />
+                                  <span className="flex items-center gap-1 text-gray-500 dark:text-gray-300">
+                                    <FaClock className="text-[#00BC7D] text-xs" />
                                     {selectedDestination.duration}
                                   </span>
-                                  <span className="flex items-center gap-1">
+                                  <span className="flex items-center gap-1 text-gray-500 dark:text-gray-300">
                                     <FaStar className="text-yellow-500 text-xs" />
                                     {selectedDestination.rating}
                                   </span>
-                                  <span className="capitalize flex items-center gap-1 text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full">
+                                  <span className="capitalize flex items-center gap-1 text-xs bg-blue-100 text-[#00BC7D] dark:bg-transparent dark:border px-2 py-0.5 rounded-full">
                                     {selectedDestination.category}
                                   </span>
                                 </div>
                                 <div className="flex items-center gap-2">
-                                  <span className="text-blue-600 font-bold text-lg flex items-center">
+                                  <span className="text-[#00BC7D] font-bold text-lg flex items-center">
                                     <FaRupeeSign className="text-sm" />
                                     {selectedDestination.price?.toLocaleString()}
                                   </span>
-                                  <span className="text-gray-500 text-xs">/ person</span>
+                                  <span className="text-gray-500 dark:text-gray-300 text-xs">/ person</span>
                                 </div>
                               </div>
                             </div>
@@ -566,8 +566,8 @@ const Booking = () => {
                       {/* Package Selector - shown in package or both mode */}
                       {(bookingMode === "package" || bookingMode === "both") && (
                         <>
-                          <div className="md:col-span-2">
-                            <label className="block text-sm font-medium text-gray-700 mb-2">
+                          <div className="md:col-span-2 ">
+                            <label className="block text-sm font-medium dark:text-gray-400 text-gray-700 mb-2">
                               Select Package <span className="text-red-500">*</span>
                             </label>
                             <select
@@ -575,7 +575,7 @@ const Booking = () => {
                               value={form.packageId}
                               onChange={handleChange}
                               required
-                              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 outline-none transition bg-white"
+                              className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 outline-none transition bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100"
                             >
                               <option value="">-- Choose a package --</option>
                               {packages.map((pkg) => (
@@ -588,23 +588,23 @@ const Booking = () => {
 
                           {/* Selected Package Details Card */}
                           {selectedPackage && (
-                            <div className="md:col-span-2 bg-emerald-50/60 border border-emerald-200 rounded-2xl p-5 flex flex-col sm:flex-row gap-5">
+                            <div className="md:col-span-2  border dark:text-gray-900 border-emerald-200 rounded-2xl p-5 flex flex-col sm:flex-row gap-5">
                               <img
                                 src={selectedPackage.image}
                                 alt={selectedPackage.title}
                                 className="w-full sm:w-36 h-28 object-cover rounded-xl shrink-0"
                               />
                               <div className="flex-1 min-w-0">
-                                <h4 className="text-base font-bold text-gray-800 mb-1 truncate">
+                                <h4 className="text-base font-bold text-gray-800 dark:text-[#00BC7D] mb-1 truncate">
                                   {selectedPackage.title}
                                 </h4>
-                                <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-gray-600 mb-2">
+                                <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-gray-500 dark:text-gray-300 mb-2">
                                   <span className="flex items-center gap-1">
-                                    <FaMapMarkerAlt className="text-emerald-500 text-xs" />
+                                    <FaMapMarkerAlt className="text-emerald-500 text-xs dark:text-[#00BC7D]" />
                                     {selectedPackage.destinations?.join(" → ")}
                                   </span>
                                   <span className="flex items-center gap-1">
-                                    <FaClock className="text-emerald-500 text-xs" />
+                                    <FaClock className="text-emerald-500 text-xs dark:text-[#00BC7D]" />
                                     {selectedPackage.duration}
                                   </span>
                                   <span className="flex items-center gap-1">
@@ -613,14 +613,14 @@ const Booking = () => {
                                   </span>
                                 </div>
                                 <div className="flex items-center gap-2">
-                                  <span className="text-gray-400 line-through text-sm">
+                                  <span className="text-gray-400 dark:text-gray-300 line-through text-sm">
                                     ₹{selectedPackage.originalPrice?.toLocaleString()}
                                   </span>
-                                  <span className="text-emerald-600 font-bold text-lg flex items-center">
+                                  <span className="text-emerald-600 dark:text-[#00BC7D] font-bold text-lg flex items-center">
                                     <FaRupeeSign className="text-sm" />
                                     {selectedPackage.price?.toLocaleString()}
                                   </span>
-                                  <span className="text-gray-500 text-xs">/ person</span>
+                                  <span className="text-gray-500 dark:text-gray-300 text-xs">/ person</span>
                                 </div>
                               </div>
                             </div>
@@ -629,16 +629,18 @@ const Booking = () => {
                       )}
 
                       <div className="md:col-span-2">
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-400 mb-2">
                           Travel Date <span className="text-red-500">*</span>
                         </label>
-                        <CalendarPicker
-                          value={form.travelDate}
-                          onChange={(date) =>
-                            setForm((prev) => ({ ...prev, travelDate: date }))
-                          }
-                          minDate={today}
-                        />
+                        <div className="w-full rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-2 transition">
+                          <CalendarPicker
+                            value={form.travelDate}
+                            onChange={(date) =>
+                              setForm((prev) => ({ ...prev, travelDate: date }))
+                            }
+                            minDate={today}
+                          />
+                        </div>
                         <input
                           type="hidden"
                           name="travelDate"
@@ -647,7 +649,7 @@ const Booking = () => {
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="dark:text-gray-400 block text-sm font-medium text-gray-700 mb-2">
                           Number of Travelers{" "}
                           <span className="text-red-500">*</span>
                         </label>
@@ -661,12 +663,12 @@ const Booking = () => {
                             required
                             min="1"
                             max="50"
-                            className="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 outline-none transition"
+                            className="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 outline-none transition bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100"
                           />
                         </div>
                       </div>
                       <div className="md:col-span-2">
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-gray-700 mb-2 dark:text-gray-400">
                           Special Requests
                         </label>
                         <textarea
@@ -675,7 +677,7 @@ const Booking = () => {
                           onChange={handleChange}
                           rows={4}
                           placeholder="Any dietary preferences, accessibility needs, or special occasions..."
-                          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 outline-none transition resize-none"
+                          className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 outline-none transition resize-none bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100"
                         />
                       </div>
                     </div>
@@ -684,7 +686,7 @@ const Booking = () => {
                   <button
                     type="submit"
                     disabled={sending}
-                    className="w-full bg-emerald-600 text-white py-4 rounded-xl font-semibold text-lg hover:bg-emerald-700 transition-all duration-200 hover:shadow-lg hover:shadow-emerald-200 flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
+                    className="w-full bg-emerald-600 dark:bg-[#00BC7D] text-white dark:text-gray-900 py-4 rounded-xl font-semibold text-lg hover:bg-emerald-700 dark:hover:bg-emerald-500 transition-all duration-200 hover:shadow-lg hover:shadow-emerald-200 flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
                   >
                     {sending ? (
                       <>
@@ -706,8 +708,8 @@ const Booking = () => {
             <div className="space-y-6">
               {/* Bill Summary */}
               {(selectedDestination || selectedPackage) && (
-                <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 sticky top-24">
-                  <h3 className="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
+                <div className="bg-white dark:bg-gray-900 rounded-3xl shadow-sm border border-gray-100 dark:border-[#00BC7D] p-6 sticky top-24">
+                  <h3 className="text-lg font-bold text-gray-800 dark:text-[#00BC7D] mb-4 flex items-center gap-2">
                     <FaClipboardList className="text-emerald-500" />
                     Booking Summary
                   </h3>
@@ -718,10 +720,10 @@ const Booking = () => {
                       <div>
                         <div className="flex items-start justify-between gap-2">
                           <div className="min-w-0">
-                            <p className="font-medium text-gray-800 truncate">{selectedDestination.name}</p>
-                            <p className="text-xs text-gray-400">Destination · {selectedDestination.duration}</p>
+                            <p className="font-medium text-gray-800 dark:text-[#00BC7D] truncate">{selectedDestination.name}</p>
+                            <p className="text-xs text-gray-400 dark:text-gray-300">Destination · {selectedDestination.duration}</p>
                           </div>
-                          <span className="text-gray-700 font-medium whitespace-nowrap">
+                          <span className="text-gray-700 dark:text-[#00BC7D] font-medium whitespace-nowrap">
                             ₹{selectedDestination.price?.toLocaleString()}
                           </span>
                         </div>
@@ -733,17 +735,17 @@ const Booking = () => {
                       <div>
                         <div className="flex items-start justify-between gap-2">
                           <div className="min-w-0">
-                            <p className="font-medium text-gray-800 truncate">{selectedPackage.title}</p>
-                            <p className="text-xs text-gray-400">Package · {selectedPackage.duration}</p>
+                            <p className="font-medium text-gray-800 dark:text-[#00BC7D] truncate">{selectedPackage.title}</p>
+                            <p className="text-xs text-gray-400 dark:text-gray-300">Package · {selectedPackage.duration}</p>
                           </div>
-                          <span className="text-gray-700 font-medium whitespace-nowrap">
+                          <span className="text-gray-700 dark:text-[#00BC7D] font-medium whitespace-nowrap">
                             ₹{selectedPackage.price?.toLocaleString()}
                           </span>
                         </div>
                         {selectedPackage.originalPrice > selectedPackage.price && (
                           <div className="flex items-center justify-between mt-1 text-xs">
-                            <span className="text-gray-400">Original price</span>
-                            <span className="text-gray-400 line-through">
+                            <span className="text-gray-400 dark:text-gray-300">Original price</span>
+                            <span className="text-gray-400 dark:text-gray-300 line-through">
                               ₹{selectedPackage.originalPrice?.toLocaleString()}
                             </span>
                           </div>
@@ -751,39 +753,39 @@ const Booking = () => {
                       </div>
                     )}
 
-                    <hr className="border-gray-100" />
+                    <hr className="border-gray-100 dark:border-[#00BC7D]" />
 
                     {/* Per person subtotal */}
                     <div className="flex justify-between">
-                      <span className="text-gray-500">Price per person</span>
-                      <span className="font-medium text-gray-700">₹{priceBreakdown.perPerson.toLocaleString()}</span>
+                      <span className="text-gray-500 dark:text-gray-300">Price per person</span>
+                      <span className="font-medium text-gray-700 dark:text-[#00BC7D]">₹{priceBreakdown.perPerson.toLocaleString()}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-500">Travelers</span>
-                      <span className="font-medium text-gray-700">× {priceBreakdown.travelers}</span>
+                      <span className="text-gray-500 dark:text-gray-300">Travelers</span>
+                      <span className="font-medium text-gray-700 dark:text-[#00BC7D]">× {priceBreakdown.travelers}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-500">Subtotal</span>
-                      <span className="font-medium text-gray-700">₹{priceBreakdown.subtotal.toLocaleString()}</span>
+                      <span className="text-gray-500 dark:text-gray-300">Subtotal</span>
+                      <span className="font-medium text-gray-700 dark:text-[#00BC7D]">₹{priceBreakdown.subtotal.toLocaleString()}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-500">GST (5%)</span>
-                      <span className="font-medium text-gray-700">₹{priceBreakdown.tax.toLocaleString()}</span>
+                      <span className="text-gray-500 dark:text-gray-300">GST (5%)</span>
+                      <span className="font-medium text-gray-700 dark:text-[#00BC7D]">₹{priceBreakdown.tax.toLocaleString()}</span>
                     </div>
 
-                    <hr className="border-gray-100" />
+                    <hr className="border-gray-100 dark:border-[#00BC7D]" />
 
                     <div className="flex justify-between items-center pt-1">
-                      <span className="text-base font-bold text-gray-800">Total</span>
-                      <span className="text-xl font-bold text-emerald-600 flex items-center">
+                      <span className="text-base font-bold text-gray-800 dark:text-[#00BC7D]">Total</span>
+                      <span className="text-xl font-bold text-emerald-600 dark:text-[#00BC7D] flex items-center">
                         <FaRupeeSign className="text-base" />
                         {priceBreakdown.total.toLocaleString()}
                       </span>
                     </div>
 
                     {selectedPackage && selectedPackage.originalPrice > selectedPackage.price && (
-                      <div className="bg-red-50 rounded-xl px-4 py-2.5 text-center mt-1">
-                        <span className="text-red-600 text-xs font-semibold">
+                      <div className="bg-red-50 dark:bg-red-900 rounded-xl px-4 py-2.5 text-center mt-1">
+                        <span className="text-red-600 dark:text-red-300 text-xs font-semibold">
                           You save ₹{((selectedPackage.originalPrice - selectedPackage.price) * priceBreakdown.travelers).toLocaleString()}!
                         </span>
                       </div>
@@ -791,17 +793,17 @@ const Booking = () => {
                   </div>
 
                   {form.travelDate && (
-                    <div className="mt-4 pt-3 border-t border-gray-100 text-xs text-gray-500 flex items-center gap-2">
-                      <FaCalendarAlt className="text-emerald-500" />
-                      Travel date: <span className="font-medium text-gray-700">{new Date(form.travelDate + "T00:00:00").toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" })}</span>
+                    <div className="mt-4 pt-3 border-t border-gray-100 dark:border-[#00BC7D] text-xs text-gray-500 dark:text-gray-300 flex items-center gap-2">
+                      <FaCalendarAlt className="text-emerald-500 dark:text-[#00BC7D]" />
+                      Travel date: <span className="font-medium text-gray-700 dark:text-[#00BC7D]">{new Date(form.travelDate + "T00:00:00").toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" })}</span>
                     </div>
                   )}
                 </div>
               )}
 
               {/* Why Book With Us */}
-              <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-6">
-                <h3 className="text-lg font-bold text-gray-800 mb-5">
+              <div className="bg-white dark:bg-gray-900 dark:border-[#00BC7D] rounded-3xl shadow-sm border border-gray-100 p-6">
+                <h3 className="text-lg font-bold text-gray-800 dark:text-[#00BC7D] mb-5">
                   Why Book With Tripzo?
                 </h3>
                 <div className="space-y-4">
@@ -828,14 +830,14 @@ const Booking = () => {
                     },
                   ].map((item, i) => (
                     <div key={i} className="flex items-start gap-3">
-                      <div className="w-10 h-10 bg-emerald-50 rounded-lg flex items-center justify-center shrink-0">
-                        <item.icon className="text-emerald-600" />
+                      <div className="w-10 h-10 dark:bg-gray-800 bg-emerald-50 dark:border dark:border-[#00BC7D] rounded-lg flex items-center justify-center shrink-0">
+                        <item.icon className="text-emerald-600 dark:text-[#00BC7D]" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-gray-800 text-sm">
+                        <h4 className="font-semibold text-gray-800 text-sm dark:text-gray-300">
                           {item.title}
                         </h4>
-                        <p className="text-gray-500 text-xs">{item.desc}</p>
+                        <p className="text-gray-500 text-xs dark:text-gray-300">{item.desc}</p>
                       </div>
                     </div>
                   ))}

@@ -152,18 +152,18 @@ const Packages = () => {
           {/* ─── Top bar ─── */}
           <div className="flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-between mb-6">
             <div className="relative flex-1 max-w-lg">
-              <FaSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
+              <FaSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500" />
               <input
                 type="text"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search packages, destinations, highlights..."
-                className="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 outline-none transition text-sm"
+                className="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 outline-none transition text-sm bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-500"
               />
               {search && (
                 <button
                   onClick={() => setSearch("")}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300"
                 >
                   <FaTimes className="text-xs" />
                 </button>
@@ -172,11 +172,11 @@ const Packages = () => {
 
             <div className="flex items-center gap-3">
               <div className="relative">
-                <FaSortAmountDown className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xs" />
+                <FaSortAmountDown className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 text-xs" />
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
-                  className="pl-9 pr-8 py-3 rounded-xl border border-gray-200 focus:border-emerald-500 outline-none text-gray-700 text-sm appearance-none bg-white cursor-pointer"
+                  className="pl-9 pr-8 py-3 rounded-xl border border-gray-200 dark:border-gray-700 focus:border-emerald-500 outline-none text-gray-700 dark:text-gray-200 text-sm appearance-none bg-white dark:bg-gray-800 cursor-pointer"
                 >
                   <option value="popular">Most Popular</option>
                   <option value="rating">Highest Rated</option>
@@ -191,8 +191,8 @@ const Packages = () => {
                 onClick={() => setShowFilters(!showFilters)}
                 className={`flex items-center gap-2 px-5 py-3 rounded-xl border font-medium text-sm transition-all ${
                   showFilters || activeFilterCount > 0
-                    ? "bg-emerald-50 border-emerald-300 text-emerald-700"
-                    : "bg-white border-gray-200 text-gray-700 hover:border-gray-300"
+                    ? "bg-emerald-50 dark:bg-emerald-900 border-emerald-300 dark:border-emerald-700 text-emerald-700 dark:text-emerald-300"
+                    : "bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200 hover:border-gray-300 dark:hover:border-gray-500"
                 }`}
               >
                 <FaSlidersH className="text-xs" />
@@ -221,16 +221,16 @@ const Packages = () => {
               showFilters ? "max-h-[500px] opacity-100 mb-8" : "max-h-0 opacity-0"
             }`}
           >
-            <div className="bg-gray-50 rounded-2xl border border-gray-100 p-6">
+            <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 p-6">
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                 <div>
-                  <label className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2 block">
+                  <label className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2 block">
                     Minimum Rating
                   </label>
                   <select
                     value={minRating}
                     onChange={(e) => setMinRating(e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-emerald-500 outline-none text-sm text-gray-700 bg-white"
+                    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 focus:border-emerald-500 outline-none text-sm text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-900"
                   >
                     {ratingOptions.map((r) => (
                       <option key={r.value} value={r.value}>{r.label}</option>
@@ -239,7 +239,7 @@ const Packages = () => {
                 </div>
 
                 <div>
-                  <label className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2 block">
+                  <label className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2 block">
                     Min Price (₹)
                   </label>
                   <input
@@ -249,12 +249,12 @@ const Packages = () => {
                     value={priceRange[0]}
                     onChange={(e) => setPriceRange([Number(e.target.value), priceRange[1]])}
                     placeholder="0"
-                    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-emerald-500 outline-none text-sm text-gray-700"
+                    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 focus:border-emerald-500 outline-none text-sm text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-900"
                   />
                 </div>
 
                 <div>
-                  <label className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2 block">
+                  <label className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2 block">
                     Max Price (₹)
                   </label>
                   <input
@@ -263,7 +263,7 @@ const Packages = () => {
                     value={priceRange[1]}
                     onChange={(e) => setPriceRange([priceRange[0], Number(e.target.value)])}
                     placeholder="200000"
-                    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-emerald-500 outline-none text-sm text-gray-700"
+                    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 focus:border-emerald-500 outline-none text-sm text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-900"
                   />
                 </div>
               </div>
@@ -278,8 +278,8 @@ const Packages = () => {
                 onClick={() => setActiveTab(tab.id)}
                 className={`px-5 py-2.5 rounded-full font-medium transition-all text-sm ${
                   activeTab === tab.id
-                    ? "bg-emerald-600 text-white shadow-md shadow-emerald-200"
-                    : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                    ? "bg-emerald-600 dark:bg-emerald-400 text-white dark:text-gray-900 shadow-md shadow-emerald-200 dark:shadow-emerald-900"
+                    : "bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
                 }`}
               >
                 {tab.name}
@@ -290,7 +290,7 @@ const Packages = () => {
           {/* Results + chips */}
           <div className="flex flex-wrap items-center gap-3 mb-6">
             <p className="text-gray-500 text-sm">
-              Showing <span className="font-semibold text-gray-800">{filtered.length}</span> packages
+              Showing <span className="font-semibold text-gray-800 dark:text-[#00BC7D]">{filtered.length}</span> packages
             </p>
             {search && (
               <span className="inline-flex items-center gap-1.5 bg-blue-50 text-blue-700 text-xs font-medium px-3 py-1 rounded-full">
@@ -317,7 +317,7 @@ const Packages = () => {
               {filtered.map((pkg) => (
                 <div
                   key={pkg._id || pkg.id}
-                  className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 flex flex-col md:flex-row"
+                  className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-[#00BC7D] flex flex-col md:flex-row"
                 >
                   <div className="relative md:w-96 h-64 md:h-auto shrink-0 overflow-hidden">
                     <img
@@ -332,39 +332,39 @@ const Packages = () => {
                     </div>
                     <button
                       onClick={() => toggleFavorite(pkg._id || pkg.id)}
-                      className="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition"
+                      className="absolute top-4 right-4 w-10 h-10 dark:border-2 dark:border-[#00BC7D] dark:bg-gray-800 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition"
                     >
                       {favorites.includes(pkg._id || pkg.id) ? (
                         <FaHeart className="text-red-500" />
                       ) : (
-                        <FaRegHeart className="text-gray-500" />
+                        <FaRegHeart className="text-gray-500 dark:text-[#00BC7D]" />
                       )}
                     </button>
                   </div>
 
-                  <div className="flex-1 p-6 md:p-8 flex flex-col">
+                  <div className="flex-1 p-6 md:p-8 flex flex-col dark:bg-gray-900">
                     <div className="flex-1">
                       <div className="flex items-center gap-4 mb-2">
                         <div className="flex items-center gap-1">
                           <FaStar className="text-yellow-500 text-sm" />
-                          <span className="font-semibold text-gray-800">{pkg.rating}</span>
-                          <span className="text-gray-400 text-sm">({pkg.reviews} reviews)</span>
+                          <span className="font-semibold text-gray-800 dark:text-gray-300">{pkg.rating}</span>
+                          <span className="text-gray-400 text-sm dark:text-gray-400">({pkg.reviews} reviews)</span>
                         </div>
-                        <span className="capitalize text-xs bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full font-medium">
+                        <span className="capitalize text-xs dark:bg-transparent dark:border dark:border-[#00BC7D]  bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full font-medium">
                           {pkg.category}
                         </span>
                       </div>
 
-                      <h3 className="text-2xl font-bold text-gray-800 mb-2">
+                      <h3 className="text-2xl font-bold text-gray-800 mb-2 dark:text-[#00BC7D]">
                         {pkg.title}
                       </h3>
 
-                      <div className="flex items-center gap-2 text-gray-500 text-sm mb-3">
+                      <div className="flex items-center gap-2 text-gray-500 text-sm mb-3 dark:text-gray-400">
                         <FaMapMarkerAlt className="text-emerald-500" />
                         {pkg.destinations.join(" → ")}
                       </div>
 
-                      <div className="flex items-center gap-4 text-gray-500 text-sm mb-4">
+                      <div className="flex items-center gap-4 text-gray-500 dark:text-gray-400 text-sm mb-4">
                         <span className="flex items-center gap-1">
                           <FaClock className="text-emerald-500" />
                           {pkg.duration}
@@ -379,14 +379,14 @@ const Packages = () => {
                         {pkg.highlights.map((h, i) => (
                           <span
                             key={i}
-                            className="text-xs bg-gray-100 text-gray-600 px-3 py-1.5 rounded-full"
+                            className="text-xs dark:bg-transparent dark:border dark:border-[#00BC7D] dark:text-[#00BC7D] bg-gray-100 text-gray-600 px-3 py-1.5 rounded-full"
                           >
                             {h}
                           </span>
                         ))}
                       </div>
 
-                      <div className="flex flex-wrap gap-4 text-sm text-gray-600">
+                      <div className="flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-400">
                         {pkg.included.map((item, i) => (
                           <span key={i} className="flex items-center gap-1">
                             <FaCheckCircle className="text-emerald-500 text-xs" />
@@ -396,16 +396,16 @@ const Packages = () => {
                       </div>
                     </div>
 
-                    <div className="flex items-center justify-between mt-6 pt-5 border-t border-gray-100">
+                    <div className="flex items-center justify-between mt-6 pt-5 border-t border-gray-100 dark:border-gray-700">
                       <div>
-                        <span className="text-gray-400 line-through text-sm">
+                        <span className="text-gray-400 dark:text-gray-400 line-through text-sm">
                           ₹{pkg.originalPrice.toLocaleString()}
                         </span>
                         <div className="flex items-center text-emerald-600 font-bold text-2xl">
                           <FaRupeeSign className="text-lg" />
                           {pkg.price.toLocaleString()}
                         </div>
-                        <span className="text-gray-500 text-xs">per person</span>
+                        <span className="text-gray-500 dark:text-gray-400 text-xs">per person</span>
                       </div>
                       <div className="flex gap-3">
                         <Link

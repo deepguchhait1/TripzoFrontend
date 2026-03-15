@@ -101,7 +101,7 @@ const PackageDetails = () => {
               </span>
               <div className="flex items-center gap-1 text-yellow-400 text-sm">
                 <FaStar />
-                <span className="text-white font-semibold">{pkg.rating}</span>
+                <span className="text-white font-semibold bg-gray-800/80 px-2 py-0.5 rounded-full">{pkg.rating}</span>
                 <span className="text-gray-300">({pkg.reviews} reviews)</span>
               </div>
               {pkg.tags?.length > 0 && pkg.tags.map((tag, i) => (
@@ -199,7 +199,7 @@ const PackageDetails = () => {
             <div className="lg:col-span-2 space-y-10">
               {/* Highlights */}
               <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 p-8">
-                <h2 className="text-xl font-bold text-gray-800 mb-5 flex items-center gap-2">
+                <h2 className="text-xl font-bold dark:text-[#00BC7D] text-gray-800 mb-5 flex items-center gap-2">
                   <FaStar className="text-emerald-500" />
                   Tour Highlights
                 </h2>
@@ -207,10 +207,10 @@ const PackageDetails = () => {
                   {pkg.highlights.map((h, i) => (
                     <div
                       key={i}
-                      className="flex items-center gap-3 bg-gray-50 rounded-xl px-4 py-3"
+                      className="flex items-center gap-3 bg-gray-50 dark:border-2 dark:border-[#00BC7D] dark:bg-gray-800 rounded-xl px-4 py-3"
                     >
                       <FaCheckCircle className="text-emerald-500 shrink-0" />
-                      <span className="text-gray-700 text-sm">{h}</span>
+                      <span className="text-gray-700 text-sm dark:text-gray-400">{h}</span>
                     </div>
                   ))}
                 </div>
@@ -218,7 +218,7 @@ const PackageDetails = () => {
 
               {/* What's Included */}
               <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 p-8">
-                <h2 className="text-xl font-bold text-gray-800 mb-5 flex items-center gap-2">
+                <h2 className="text-xl font-bold dark:text-[#00BC7D] text-gray-800 mb-5 flex items-center gap-2">
                   <FaCheckCircle className="text-emerald-500" />
                   What's Included
                 </h2>
@@ -226,10 +226,10 @@ const PackageDetails = () => {
                   {pkg.included.map((item, i) => (
                     <div
                       key={i}
-                      className="flex items-center gap-3 bg-emerald-50 rounded-xl px-4 py-3"
+                      className="flex items-center gap-3 bg-emerald-50 dark:border-2 dark:border-[#00BC7D] dark:bg-gray-800 rounded-xl px-4 py-3"
                     >
                       <FaCheckCircle className="text-emerald-600 shrink-0" />
-                      <span className="text-gray-700 text-sm font-medium">
+                      <span className="text-gray-700 text-sm font-medium dark:text-gray-400">
                         {item}
                       </span>
                     </div>
@@ -239,7 +239,7 @@ const PackageDetails = () => {
 
               {/* Destinations */}
               <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 p-8">
-                <h2 className="text-xl font-bold text-gray-800 mb-5 flex items-center gap-2">
+                <h2 className="text-xl font-bold dark:text-[#00BC7D] text-gray-800 mb-5 flex items-center gap-2">
                   <FaMapMarkerAlt className="text-emerald-500" />
                   Destinations Covered
                 </h2>
@@ -249,7 +249,7 @@ const PackageDetails = () => {
                       <span className="bg-emerald-600 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">
                         {i + 1}
                       </span>
-                      <span className="text-gray-700 font-medium">{dest}</span>
+                      <span className="text-gray-700 font-medium dark:text-gray-400">{dest}</span>
                       {i < pkg.destinations.length - 1 && (
                         <FaChevronRight className="text-gray-300 text-xs mx-1" />
                       )}
@@ -260,34 +260,34 @@ const PackageDetails = () => {
 
               {/* Important Info */}
               <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 p-8">
-                <h2 className="text-xl font-bold text-gray-800 mb-5 flex items-center gap-2">
+                <h2 className="text-xl font-bold dark:text-[#00BC7D] text-gray-800 mb-5 flex items-center gap-2">
                   <FaCalendarAlt className="text-emerald-500" />
                   Important Information
                 </h2>
                 <div className="grid sm:grid-cols-2 gap-4 text-sm">
-                  <div className="bg-blue-50 rounded-xl p-4">
-                    <h4 className="font-semibold text-blue-800 mb-1">
+                  <div className="bg-blue-50 dark:border-2 dark:border-[#00BC7D] dark:bg-gray-800 rounded-xl p-4">
+                    <h4 className="font-semibold text-blue-800 dark:text-[#00BC7D] mb-1">
                       Duration
                     </h4>
-                    <p className="text-blue-600">{pkg.duration}</p>
+                    <p className="text-blue-600 dark:text-blue-300">{pkg.duration}</p>
                   </div>
-                  <div className="bg-green-50 rounded-xl p-4">
-                    <h4 className="font-semibold text-green-800 mb-1">
+                  <div className="bg-green-50 dark:border-2 dark:border-[#00BC7D] dark:bg-gray-800 rounded-xl p-4">
+                    <h4 className="font-semibold text-green-800 dark:text-[#00BC7D] mb-1">
                       Group Size
                     </h4>
-                    <p className="text-green-600">2 – 10 People</p>
+                    <p className="text-green-600 dark:text-green-300">2 – 10 People</p>
                   </div>
-                  <div className="bg-purple-50 rounded-xl p-4">
-                    <h4 className="font-semibold text-purple-800 mb-1">
+                  <div className="bg-purple-50 dark:border-2 dark:border-[#00BC7D] dark:bg-gray-800 rounded-xl p-4">
+                    <h4 className="font-semibold text-purple-800 dark:text-[#00BC7D] mb-1">
                       Category
                     </h4>
-                    <p className="text-purple-600 capitalize">{pkg.category}</p>
+                    <p className="text-purple-600 dark:text-purple-300 capitalize">{pkg.category}</p>
                   </div>
-                  <div className="bg-orange-50 rounded-xl p-4">
-                    <h4 className="font-semibold text-orange-800 mb-1">
+                  <div className="bg-orange-50 dark:border-2 dark:border-[#00BC7D] dark:bg-gray-800 rounded-xl p-4">
+                    <h4 className="font-semibold text-orange-800 dark:text-[#00BC7D] mb-1">
                       Rating
                     </h4>
-                    <p className="text-orange-600">
+                    <p className="text-orange-600 dark:text-orange-300">
                       {pkg.rating} ★ ({pkg.reviews} reviews)
                     </p>
                   </div>
@@ -299,17 +299,17 @@ const PackageDetails = () => {
             <div className="space-y-6">
               {/* Price Card */}
               <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 p-6 sticky top-24">
-                <div className="text-center pb-5 border-b border-gray-100">
-                  <span className="text-gray-400 line-through text-lg">
+                <div className="text-center pb-5 border-b border-gray-100 dark:border-gray-700">
+                  <span className="text-gray-400 dark:text-gray-300 line-through text-lg">
                     ₹{pkg.originalPrice.toLocaleString()}
                   </span>
-                  <div className="flex items-center justify-center text-emerald-600 font-bold text-4xl mt-1">
+                  <div className="flex items-center justify-center text-emerald-600 dark:text-[#00BC7D] font-bold text-4xl mt-1">
                     <FaRupeeSign className="text-2xl" />
                     {pkg.price.toLocaleString()}
                   </div>
-                  <span className="text-gray-500 text-sm">per person</span>
+                  <span className="text-gray-500 dark:text-gray-300 text-sm">per person</span>
                   <div className="mt-2">
-                    <span className="bg-red-50 text-red-600 text-xs font-semibold px-3 py-1 rounded-full">
+                    <span className="bg-red-50 dark:bg-red-900 text-red-600 dark:text-red-300 text-xs font-semibold px-3 py-1 rounded-full">
                       Save ₹{(pkg.originalPrice - pkg.price).toLocaleString()}
                     </span>
                   </div>
@@ -318,13 +318,13 @@ const PackageDetails = () => {
                 <div className="py-5 space-y-4">
                   <Link
                     to={`/booking/${pkg._id || pkg.id}`}
-                    className="block w-full bg-emerald-600 text-white py-4 rounded-xl font-semibold text-center text-lg hover:bg-emerald-700 transition-all duration-200 hover:shadow-lg hover:shadow-emerald-200"
+                    className="block w-full bg-emerald-600 dark:bg-[#00BC7D] text-white dark:text-gray-900 py-4 rounded-xl font-semibold text-center text-lg hover:bg-emerald-700 dark:hover:bg-emerald-500 transition-all duration-200 hover:shadow-lg hover:shadow-emerald-200"
                   >
                     Book Now
                   </Link>
                   <a
                     href="tel:+911234567890"
-                    className="w-full border-2 border-emerald-600 text-emerald-600 py-3.5 rounded-xl font-semibold text-center hover:bg-emerald-50 transition flex items-center justify-center gap-2"
+                    className="w-full border-2 border-emerald-600 dark:border-[#00BC7D] text-emerald-600 dark:text-[#00BC7D] py-3.5 rounded-xl font-semibold text-center hover:bg-emerald-50 dark:hover:bg-gray-900 transition flex items-center justify-center gap-2"
                   >
                     <FaPhoneAlt />
                     Call to Book
@@ -356,11 +356,11 @@ const PackageDetails = () => {
                     },
                   ].map((item, i) => (
                     <div key={i} className="flex items-start gap-3">
-                      <div className="w-9 h-9 bg-emerald-50 rounded-lg flex items-center justify-center shrink-0">
+                      <div className="w-9 h-9 dark:bg-gray-700 bg-emerald-50 rounded-lg flex items-center justify-center shrink-0">
                         <item.icon className="text-emerald-600 text-sm" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-gray-800 text-sm">
+                        <h4 className="font-semibold text-gray-800 text-sm dark:text-gray-300">
                           {item.title}
                         </h4>
                         <p className="text-gray-500 text-xs">{item.desc}</p>
@@ -399,7 +399,7 @@ const PackageDetails = () => {
           {/* Related Packages */}
           {related.length > 0 && (
             <div className="mt-16">
-              <h2 className="text-2xl font-bold text-gray-800 mb-8">
+              <h2 className="text-2xl font-bold text-gray-800 dark:text-[#00BC7D] mb-8">
                 Similar Packages You Might Like
               </h2>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -407,7 +407,7 @@ const PackageDetails = () => {
                   <Link
                     key={rPkg._id || rPkg.id}
                     to={`/packages/${rPkg._id || rPkg.id}`}
-                    className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-700 group"
+                    className="bg-white hover:borde-2 hover:border-[#00BC7D] dark:bg-gray-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-700 group"
                   >
                     <div className="relative h-52 overflow-hidden">
                       <img
@@ -430,32 +430,32 @@ const PackageDetails = () => {
                       <div className="flex items-center gap-2 mb-2">
                         <div className="flex items-center gap-1 text-sm">
                           <FaStar className="text-yellow-500" />
-                          <span className="font-semibold text-gray-800">
+                          <span className="font-semibold text-gray-800 dark:text-gray-300">
                             {rPkg.rating}
                           </span>
                         </div>
-                        <span className="capitalize text-xs bg-emerald-50 text-emerald-700 px-2.5 py-0.5 rounded-full font-medium">
+                        <span className="capitalize text-xs bg-emerald-50 dark:bg-emerald-900 text-emerald-700 dark:text-emerald-300 px-2.5 py-0.5 rounded-full font-medium">
                           {rPkg.category}
                         </span>
                       </div>
-                      <h3 className="font-bold text-gray-800 mb-1 group-hover:text-emerald-600 transition">
+                      <h3 className="font-bold text-gray-800 dark:text-[#00BC7D] mb-1 group-hover:text-emerald-600 transition">
                         {rPkg.title}
                       </h3>
-                      <div className="flex items-center gap-2 text-gray-500 text-xs mb-3">
+                      <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400 text-xs mb-3">
                         <FaMapMarkerAlt className="text-emerald-500" />
                         {rPkg.destinations.join(" → ")}
                       </div>
-                      <div className="flex items-center justify-between pt-3 border-t border-gray-100">
+                      <div className="flex items-center justify-between pt-3 border-t border-gray-100 dark:border-gray-700">
                         <div>
-                          <span className="text-gray-400 line-through text-xs">
+                          <span className="text-gray-400 dark:text-gray-300 line-through text-xs">
                             ₹{rPkg.originalPrice.toLocaleString()}
                           </span>
-                          <div className="flex items-center text-emerald-600 font-bold text-lg">
+                          <div className="flex items-center text-emerald-600 dark:text-[#00BC7D] font-bold text-lg">
                             <FaRupeeSign className="text-sm" />
                             {rPkg.price.toLocaleString()}
                           </div>
                         </div>
-                        <span className="text-emerald-600 font-medium text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
+                        <span className="text-emerald-600 dark:text-[#00BC7D] font-medium text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
                           View <FaChevronRight className="text-xs" />
                         </span>
                       </div>
