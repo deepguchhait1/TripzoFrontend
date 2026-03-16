@@ -237,7 +237,7 @@ const AdminContacts = () => {
               placeholder="Search messages..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/30 focus:border-emerald-500 transition"
+              className="text-gray-600 w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/30 focus:border-emerald-500 transition"
             />
           </div>
           <div className="flex gap-1.5">
@@ -482,14 +482,14 @@ const AdminContacts = () => {
             </div>
 
             {/* Form Fields */}
-            <div className="px-5 pb-2 flex-1 overflow-y-auto space-y-4">
+            <div className="text-gray-600 px-5 pb-2 flex-1 overflow-y-auto space-y-4">
               <div>
                 <label className="text-sm font-medium text-gray-700 mb-1.5 block">Subject</label>
                 <input
                   type="text"
                   value={replyForm.subject}
                   onChange={(e) => setReplyForm({ ...replyForm, subject: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 outline-none transition text-sm"
+                  className="text-gray-600 w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 outline-none transition text-sm"
                 />
               </div>
               <div>

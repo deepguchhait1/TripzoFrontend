@@ -140,7 +140,7 @@ const AdminTestimonials = () => {
       {/* Search, Filter & Add */}
       <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4">
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-          <div className="relative flex-1">
+          <div className="relative flex-1 text-gray-700">
             <FaSearch className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-sm" />
             <input
               type="text"
@@ -239,7 +239,7 @@ const AdminTestimonials = () => {
                 <FaTimes className="text-lg" />
               </button>
             </div>
-            <form onSubmit={handleSubmit} className="p-6 space-y-5">
+            <form onSubmit={handleSubmit} className="text-gray-600 p-6 space-y-5">
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5 block">Name *</label>

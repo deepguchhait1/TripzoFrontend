@@ -770,7 +770,7 @@ const AdminMembers = () => {
             </div>
 
             {/* Form */}
-            <form onSubmit={handleCreate} className="p-5 space-y-4">
+            <form onSubmit={handleCreate} className="text-gray-600 p-5 space-y-4">
               {/* Name */}
               <div>
                 <label className="text-sm font-medium text-gray-700 mb-1.5 block">Full Name *</label>
