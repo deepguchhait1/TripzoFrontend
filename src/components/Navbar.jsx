@@ -152,18 +152,17 @@ const Navbar = () => {
                       <FaTimes className="text-xs" />
                     </button>
                     <SearchSuggestions
-                      query={searchQuery}
-                      visible={showDesktopSuggestions}
-                      variant={theme === "dark" ? "dark" : "light"}
-                      onSelect={(item) => {
-                        setShowDesktopSuggestions(false);
-                        setSearchOpen(false);
-                        setSearchQuery("");
-                        navigate(item.type === "destination" ? `/destinations/${item._id}` : `/packages/${item._id}`);
-                      }}
-                      onClose={() => setShowDesktopSuggestions(false)}
-                      variant="light"
-                      className="w-80 -left-12"
+                        query={searchQuery}
+                        visible={showDesktopSuggestions}
+                        variant={theme === "dark" ? "dark" : "light"}
+                        onSelect={(item) => {
+                          setShowDesktopSuggestions(false);
+                          setSearchOpen(false);
+                          setSearchQuery("");
+                          navigate(item.type === "destination" ? `/destinations/${item._id}` : `/packages/${item._id}`);
+                        }}
+                        onClose={() => setShowDesktopSuggestions(false)}
+                        className={`w-80 -left-12 ${theme === "dark" ? "bg-gray-900 text-gray-200 border-gray-700" : "bg-white text-gray-800 border-gray-200"}`}
                     />
                   </form>
                 ) : (
@@ -257,7 +256,6 @@ const Navbar = () => {
                   navigate(item.type === "destination" ? `/destinations/${item._id}` : `/packages/${item._id}`);
                 }}
                 onClose={() => setShowMobileSuggestions(false)}
-                variant="light"
               />
             </form>
             {navLinks.map((link) => (

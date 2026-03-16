@@ -114,11 +114,11 @@ const DestinationDetails = () => {
                 {dest.category}
               </span>
               <div className="flex items-center gap-1 text-yellow-400 text-sm">
-                <FaStar />
-                <span className="text-white font-semibold">{dest.rating}</span>
-                <span className="text-gray-300">
-                  ({dest.reviews} reviews)
-                </span>
+                  <FaStar />
+                  <span className="text-white font-semibold bg-gray-800/80 px-2 py-0.5 rounded-full">{dest.rating}</span>
+                  <span className="text-gray-300">
+                    ({dest.reviews} reviews)
+                  </span>
               </div>
             </div>
 
@@ -153,28 +153,28 @@ const DestinationDetails = () => {
         <div className="absolute top-6 right-6 flex items-center gap-3">
           <button
             onClick={() => setIsFav(!isFav)}
-            className="w-11 h-11 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition shadow-lg"
+            className="w-11 h-11 dark:border-2 dark:border-[#00BC7D] dark:bg-gray-800 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition shadow-lg"
           >
             {isFav ? (
-              <FaHeart className="text-red-500" />
+              <FaHeart className="text-red-500 " />
             ) : (
-              <FaRegHeart className="text-gray-600" />
+              <FaRegHeart className="text-gray-600 dark:text-[#00BC7D]" />
             )}
           </button>
           <button
             onClick={() => navigator.clipboard.writeText(window.location.href)}
-            className="w-11 h-11 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition shadow-lg"
+            className="w-11 h-11 dark:border-2 dark:border-[#00BC7D] dark:bg-gray-800 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition shadow-lg"
           >
-            <FaShareAlt className="text-gray-600" />
+            <FaShareAlt className="text-gray-600 dark:text-[#00BC7D]" />
           </button>
         </div>
 
         {/* Back Button */}
         <button
           onClick={() => navigate("/destinations")}
-          className="absolute top-6 left-6 w-11 h-11 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition shadow-lg"
+          className="absolute dark:border-2 dark:border-[#00BC7D] dark:bg-gray-800 top-6 left-6 w-11 h-11 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition shadow-lg"
         >
-          <FaArrowLeft className="text-gray-600" />
+          <FaArrowLeft className="text-gray-600 dark:text-[#00BC7D]" />
         </button>
       </section>
 
@@ -214,23 +214,23 @@ const DestinationDetails = () => {
             <div className="lg:col-span-2 space-y-10">
               {/* About */}
               <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 p-8">
-                <h2 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
-                  <FaMapMarkerAlt className="text-emerald-500" />
+                <h2 className="text-xl font-bold dark:text-[#00BC7D] text-gray-800 mb-4 flex items-center gap-2">
+                  <FaMapMarkerAlt className="text-emerald-500 " />
                   About {dest.name}
                 </h2>
-                <p className="text-gray-600 leading-relaxed text-base">
+                <p className="text-gray-600 leading-relaxed text-base dark:text-gray-500">
                   {dest.description}
                 </p>
               </div>
 
               {/* Quick Info */}
               <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 p-8">
-                <h2 className="text-xl font-bold text-gray-800 mb-5 flex items-center gap-2">
+                <h2 className="text-xl font-bold dark:text-[#00BC7D] text-gray-800 mb-5 flex items-center gap-2">
                   <FaCalendarAlt className="text-emerald-500" />
                   Quick Information
                 </h2>
                 <div className="grid sm:grid-cols-2 gap-4">
-                  <div className="bg-blue-50 rounded-xl p-4">
+                  <div className="bg-blue-50 dark:border-2 dark:border-[#00BC7D] dark:bg-gray-800 rounded-xl p-4">
                     <h4 className="font-semibold text-blue-800 mb-1 text-sm">
                       Location
                     </h4>
@@ -239,7 +239,7 @@ const DestinationDetails = () => {
                       {dest.state}, India
                     </p>
                   </div>
-                  <div className="bg-green-50 rounded-xl p-4">
+                  <div className="bg-green-50 dark:border-2 dark:border-[#00BC7D] dark:bg-gray-800 rounded-xl p-4">
                     <h4 className="font-semibold text-green-800 mb-1 text-sm">
                       Best Duration
                     </h4>
@@ -248,7 +248,7 @@ const DestinationDetails = () => {
                       {dest.duration}
                     </p>
                   </div>
-                  <div className="bg-purple-50 rounded-xl p-4">
+                  <div className="bg-purple-50 dark:border-2 dark:border-[#00BC7D] dark:bg-gray-800 rounded-xl p-4">
                     <h4 className="font-semibold text-purple-800 mb-1 text-sm">
                       Category
                     </h4>
@@ -257,7 +257,7 @@ const DestinationDetails = () => {
                       {dest.category}
                     </p>
                   </div>
-                  <div className="bg-orange-50 rounded-xl p-4">
+                  <div className="bg-orange-50 dark:border-2 dark:border-[#00BC7D] dark:bg-gray-800 rounded-xl p-4">
                     <h4 className="font-semibold text-orange-800 mb-1 text-sm">
                       Rating
                     </h4>
@@ -271,7 +271,7 @@ const DestinationDetails = () => {
 
               {/* Best For */}
               <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 p-8">
-                <h2 className="text-xl font-bold text-gray-800 mb-5 flex items-center gap-2">
+                <h2 className="text-xl font-bold dark:text-[#00BC7D] text-gray-800 mb-5 flex items-center gap-2">
                   <FaCamera className="text-emerald-500" />
                   Perfect For
                 </h2>
@@ -284,10 +284,10 @@ const DestinationDetails = () => {
                   ].map((item, i) => (
                     <div
                       key={i}
-                      className="flex items-center gap-3 bg-gray-50 rounded-xl px-4 py-3"
+                      className="flex items-center gap-3 bg-gray-50 rounded-xl px-4 py-3 dark:border-2 dark:border-[#00BC7D] dark:bg-gray-800 "
                     >
-                      <item.icon className="text-emerald-500" />
-                      <span className="text-gray-700 text-sm font-medium">
+                      <item.icon className="text-emerald-500 " />
+                      <span className="text-gray-700 text-sm font-medium dark:text-gray-400">
                         {item.text}
                       </span>
                     </div>
@@ -297,7 +297,7 @@ const DestinationDetails = () => {
 
               {/* Travel Tips */}
               <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 p-8">
-                <h2 className="text-xl font-bold text-gray-800 mb-5 flex items-center gap-2">
+                <h2 className="text-xl font-bold dark:text-[#00BC7D] text-gray-800 mb-5 flex items-center gap-2">
                   <FaCheckCircle className="text-emerald-500" />
                   Travel Tips
                 </h2>
@@ -311,10 +311,10 @@ const DestinationDetails = () => {
                   ].map((tip, i) => (
                     <div
                       key={i}
-                      className="flex items-start gap-3 bg-emerald-50 rounded-xl px-4 py-3"
+                      className="flex items-start gap-3 bg-emerald-50 rounded-xl px-4 py-3 dark:border-2 dark:border-[#00BC7D] dark:bg-gray-800"
                     >
                       <FaCheckCircle className="text-emerald-600 shrink-0 mt-0.5" />
-                      <span className="text-gray-700 text-sm">{tip}</span>
+                      <span className="text-gray-700 text-sm dark:text-gray-400">{tip}</span>
                     </div>
                   ))}
                 </div>
@@ -324,14 +324,14 @@ const DestinationDetails = () => {
             {/* Sidebar */}
             <div className="space-y-6">
               {/* Price Card */}
-              <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 sticky top-24">
-                <div className="text-center pb-5 border-b border-gray-100">
+              <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 p-6 sticky top-24">
+                <div className="text-center pb-5 border-b border-gray-100 dark:border-gray-700">
                   <p className="text-gray-500 text-sm mb-1">Starting from</p>
                   <div className="flex items-center justify-center text-emerald-600 font-bold text-4xl">
                     <FaRupeeSign className="text-2xl" />
                     {dest.price.toLocaleString()}
                   </div>
-                  <span className="text-gray-500 text-sm">per person</span>
+                  <span className="text-gray-400 text-sm">per person</span>
                 </div>
 
                 <div className="py-5 space-y-4">
@@ -351,7 +351,7 @@ const DestinationDetails = () => {
                 </div>
 
                 {/* Trust Badges */}
-                <div className="space-y-3 pt-5 border-t border-gray-100">
+                <div className="space-y-3 pt-5 border-t border-gray-100 dark:border-gray-700">
                   {[
                     {
                       icon: FaShieldAlt,
@@ -375,11 +375,11 @@ const DestinationDetails = () => {
                     },
                   ].map((item, i) => (
                     <div key={i} className="flex items-start gap-3">
-                      <div className="w-9 h-9 bg-emerald-50 rounded-lg flex items-center justify-center shrink-0">
+                      <div className="w-9 h-9 dark:bg-gray-700  bg-emerald-50 rounded-lg flex items-center justify-center shrink-0">
                         <item.icon className="text-emerald-600 text-sm" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-gray-800 text-sm">
+                        <h4 className="font-semibold text-gray-800 text-sm dark:text-gray-300">
                           {item.title}
                         </h4>
                         <p className="text-gray-500 text-xs">{item.desc}</p>
@@ -427,7 +427,7 @@ const DestinationDetails = () => {
                   <Link
                     key={rDest._id || rDest.id}
                     to={`/destinations/${rDest._id || rDest.id}`}
-                    className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-700 group"
+                    className="bg-white hover:borde-2 hover:border-[#00BC7D] dark:bg-gray-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-700 group"
                   >
                     <div className="relative h-52 overflow-hidden">
                       <img
@@ -442,20 +442,20 @@ const DestinationDetails = () => {
                       </div>
                       <div className="absolute top-3 right-3 flex items-center gap-1 bg-white/90 backdrop-blur-sm px-2 py-0.5 rounded-full">
                         <FaStar className="text-yellow-500 text-xs" />
-                        <span className="text-sm font-semibold">
+                        <span className="text-sm font-semibold dark:text-gray-800">
                           {rDest.rating}
                         </span>
                       </div>
                     </div>
                     <div className="p-5">
-                      <h3 className="font-bold text-gray-800 mb-1 group-hover:text-emerald-600 transition">
+                      <h3 className="font-bold dark:text-[#00BC7D] text-gray-800 mb-1 group-hover:text-emerald-600 transition">
                         {rDest.name}
                       </h3>
                       <div className="flex items-center gap-1 text-gray-500 text-xs mb-3">
                         <FaMapMarkerAlt className="text-emerald-500" />
                         {rDest.state}
                       </div>
-                      <div className="flex items-center justify-between pt-3 border-t border-gray-100">
+                      <div className="flex items-center justify-between pt-3 border-t border-gray-100 dark:border-gray-700">
                         <div className="flex items-center text-emerald-600 font-bold text-lg">
                           <FaRupeeSign className="text-sm" />
                           {rDest.price.toLocaleString()}

@@ -311,7 +311,7 @@ const AdminSubscribers = () => {
       {/* Filters */}
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4">
         <div className="flex flex-col sm:flex-row gap-3">
-          <div className="relative flex-1">
+          <div className="relative flex-1 text-gray-600">
             <FaSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
             <input
               type="text"
@@ -540,7 +540,7 @@ const AdminSubscribers = () => {
               </div>
 
               {/* Recipients */}
-              <div>
+              <div className="text-gray-600">
                 <label className="block text-sm font-semibold text-gray-700 mb-2">
                   Send To
                 </label>
@@ -567,7 +567,7 @@ const AdminSubscribers = () => {
               </div>
 
               {/* Subject */}
-              <div>
+              <div className="text-gray-600">
                 <label className="block text-sm font-semibold text-gray-700 mb-2">
                   Subject
                 </label>
@@ -581,7 +581,7 @@ const AdminSubscribers = () => {
               </div>
 
               {/* Body */}
-              <div>
+              <div className="text-gray-600">
                 <label className="block text-sm font-semibold text-gray-700 mb-2">
                   Message
                 </label>

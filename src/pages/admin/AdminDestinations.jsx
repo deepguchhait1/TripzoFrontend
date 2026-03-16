@@ -165,7 +165,7 @@ const AdminDestinations = () => {
       {/* Search, Filter & Add */}
       <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4">
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-          <div className="relative flex-1">
+          <div className="relative flex-1 text-gray-600">
             <FaSearch className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-sm" />
             <input
               type="text"
@@ -284,7 +284,7 @@ const AdminDestinations = () => {
                 <FaTimes className="text-lg" />
               </button>
             </div>
-            <form onSubmit={handleSubmit} className="p-6 space-y-5">
+            <form onSubmit={handleSubmit} className="p-6 space-y-5 text-gray-600">
               {/* Main Image */}
               <ImageUploader
                 value={form.image}
@@ -293,14 +293,14 @@ const AdminDestinations = () => {
                 label="Main Image"
                 required
               />
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-gray-600">
                 <div>
                   <label className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5 block">Name *</label>
-                  <input name="name" value={form.name} onChange={handleChange} required className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition text-sm" />
+                  <input name="name" value={form.name} onChange={handleChange} required className="text-gray-600 w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition text-sm" />
                 </div>
                 <div>
                   <label className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5 block">State *</label>
-                  <input name="state" value={form.state} onChange={handleChange} required className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition text-sm" />
+                  <input name="state" value={form.state} onChange={handleChange} required className="text-gray-600 w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition text-sm" />
                 </div>
               </div>
 
@@ -325,12 +325,12 @@ const AdminDestinations = () => {
                     ))}
                   </div>
                 )}
-                <div className="flex gap-2">
+                <div className="flex gap-2 text-gray-600">
                   <input
                     value={newImageUrl}
                     onChange={(e) => setNewImageUrl(e.target.value)}
                     placeholder="Paste image URL and click Add"
-                    className="flex-1 px-4 py-2.5 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition text-sm"
+                    className="text-gray-600 flex-1 px-4 py-2.5 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition text-sm"
                   />
                   <button
                     type="button"
@@ -349,24 +349,24 @@ const AdminDestinations = () => {
 
               <div>
                 <label className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5 block">Description *</label>
-                <textarea name="description" value={form.description} onChange={handleChange} required rows={3} className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none resize-none transition text-sm" />
+                <textarea name="description" value={form.description} onChange={handleChange} required rows={3} className="text-gray-600 w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none resize-none transition text-sm" />
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 <div>
                   <label className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5 block">Price *</label>
-                  <input name="price" type="number" value={form.price} onChange={handleChange} required className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition text-sm" />
+                 <input name="price" type="number" value={form.price} onChange={handleChange} required className="text-gray-600 w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition text-sm" />
                 </div>
                 <div>
                   <label className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5 block">Rating</label>
-                  <input name="rating" type="number" step="0.1" min="0" max="5" value={form.rating} onChange={handleChange} className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition text-sm" />
+                  <input name="rating" type="number" step="0.1" min="0" max="5" value={form.rating} onChange={handleChange} className="text-gray-600 w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition text-sm" />
                 </div>
                 <div>
                   <label className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5 block">Reviews</label>
-                  <input name="reviews" type="number" value={form.reviews} onChange={handleChange} className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition text-sm" />
+                 <input name="reviews" type="number" value={form.reviews} onChange={handleChange} className="text-gray-600 w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition text-sm" />
                 </div>
                 <div>
                   <label className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5 block">Duration *</label>
-                  <input name="duration" value={form.duration} onChange={handleChange} required placeholder="3D / 2N" className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition text-sm" />
+                 <input name="duration" value={form.duration} onChange={handleChange} required placeholder="3D / 2N" className="text-gray-600 w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition text-sm" />
                 </div>
               </div>
 
@@ -401,7 +401,7 @@ const AdminDestinations = () => {
                       }
                     }}
                     placeholder="Type tag and press Enter or click Add"
-                    className="flex-1 px-4 py-2.5 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition text-sm"
+                    className="text-gray-600 flex-1 px-4 py-2.5 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition text-sm"
                   />
                   <button
                     type="button"
@@ -421,8 +421,8 @@ const AdminDestinations = () => {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div>
                   <label className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5 block">Category *</label>
-                  <select name="category" value={form.category} onChange={handleChange} className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none capitalize transition text-sm">
-                    {categories.map((c) => <option key={c} value={c}>{c}</option>)}
+                  <select name="category" value={form.category} onChange={handleChange} className="text-gray-600 w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none capitalize transition text-sm">
+                    {categories.map((c) => <option key={c} className="text-gray-600" value={c}>{c}</option>)}
                   </select>
                 </div>
                 <div className="flex items-center gap-4 pt-6">

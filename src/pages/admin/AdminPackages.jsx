@@ -176,7 +176,7 @@ const AdminPackages = () => {
       {/* Search, Filter & Add */}
       <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4">
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-          <div className="relative flex-1">
+          <div className="relative flex-1 text-gray-600">
             <FaSearch className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-sm" />
             <input
               type="text"
@@ -301,7 +301,7 @@ const AdminPackages = () => {
                 <FaTimes className="text-lg" />
               </button>
             </div>
-            <form onSubmit={handleSubmit} className="p-6 space-y-5">
+            <form onSubmit={handleSubmit} className="p-6 space-y-5 text-gray-600">
               {/* Main image */}
               <ImageUploader
                 value={form.image}

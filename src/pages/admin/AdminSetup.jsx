@@ -107,7 +107,7 @@ const AdminSetup = () => {
           </div>
 
           {/* Form */}
-          <form onSubmit={handleSubmit} className="space-y-5">
+          <form onSubmit={handleSubmit} className="text-gray-600 space-y-5">
             {/* Name */}
             <div>
               <label className="text-sm font-semibold text-gray-700 mb-1.5 block">

@@ -67,7 +67,7 @@ const BlogSection = () => {
             <div className="absolute bottom-0 left-0 right-0 p-7">
               <div className="flex items-center gap-4 text-white/60 text-sm mb-3">
                 <span className="flex items-center gap-1.5">
-                  <FaCalendarAlt className="text-xs" /> {featured.date}
+                  <FaCalendarAlt className="text-xs" /> {new Date(featured.createdAt).toLocaleDateString()}
                 </span>
                 <span className="flex items-center gap-1.5">
                   <FaClock className="text-xs" /> {featured.readTime}
@@ -80,7 +80,7 @@ const BlogSection = () => {
                 {featured.excerpt}
               </p>
               <Link
-                to="#"
+                to={`/blog/${featured._id}`}
                 className="inline-flex items-center gap-2 text-emerald-400 font-semibold text-sm hover:gap-3 transition-all"
               >
                 Read Article <FaArrowRight className="text-xs" />
@@ -108,7 +108,7 @@ const BlogSection = () => {
                 <div className="py-5 pr-5 flex flex-col justify-center min-w-0">
                   <div className="flex items-center gap-3 text-gray-400 dark:text-gray-500 text-xs mb-2">
                     <span className="flex items-center gap-1">
-                      <FaCalendarAlt className="text-[10px]" /> {post.date}
+                      <FaCalendarAlt className="text-[10px]" /> {new Date(post.createdAt).toLocaleDateString()}
                     </span>
                     <span className="flex items-center gap-1">
                       <FaClock className="text-[10px]" /> {post.readTime}
@@ -121,7 +121,7 @@ const BlogSection = () => {
                     {post.excerpt}
                   </p>
                   <Link
-                    to="#"
+                    to={`/blog/${post._id}`}
                     className="inline-flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 font-semibold text-sm hover:gap-2.5 transition-all"
                   >
                     Read More <FaArrowRight className="text-[10px]" />

@@ -19,6 +19,7 @@ const Contact = lazy(() => import("./pages/Contact"));
 const Booking = lazy(() => import("./pages/Booking"));
 const PackageDetails = lazy(() => import("./pages/PackageDetails"));
 const SearchResults = lazy(() => import("./pages/SearchResults"));
+const BlogDetails = lazy(() => import("./pages/BlogDetails"));
 
 // Lazy-loaded admin pages
 const AdminLogin = lazy(() => import("./pages/admin/AdminLogin"));
@@ -78,6 +79,7 @@ function App() {
                       <Route path="/booking" element={<Booking />} />
                       <Route path="/booking/:packageId" element={<Booking />} />
                       <Route path="/search" element={<SearchResults />} />
+                      <Route path="/blog/:id" element={<BlogDetails />} />
                     </Routes>
                   </main>
                   <Footer />

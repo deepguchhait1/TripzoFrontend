@@ -324,8 +324,8 @@ const Destinations = () => {
                   onClick={() => setActiveCategory(cat.id)}
                   className={`flex items-center gap-2 px-5 py-2.5 rounded-full font-medium transition-all text-sm ${
                     activeCategory === cat.id
-                      ? "bg-emerald-600 text-white shadow-md shadow-emerald-200"
-                      : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                      ? "bg-emerald-600 text-white shadow-md shadow-emerald-200 dark:bg-emerald-500 dark:text-gray-100 dark:shadow-emerald-900"
+                      : "bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
                   }`}
                 >
                   {Icon && <Icon />}
@@ -338,7 +338,7 @@ const Destinations = () => {
           {/* Results Count + Active filter chips */}
           <div className="flex flex-wrap items-center gap-3 mb-6">
             <p className="text-gray-500 text-sm">
-              Showing <span className="font-semibold text-gray-800">{filtered.length}</span> destinations
+              Showing <span className="font-semibold text-gray-800 dark:text-[#00BC7D]">{filtered.length}</span> destinations
             </p>
             {search && (
               <span className="inline-flex items-center gap-1.5 bg-blue-50 text-blue-700 text-xs font-medium px-3 py-1 rounded-full">
@@ -381,8 +381,8 @@ const Destinations = () => {
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
                     <div className="absolute top-4 right-4 flex items-center gap-1 bg-white/90 backdrop-blur-sm px-2.5 py-1 rounded-full">
-                      <FaStar className="text-yellow-500 text-xs" />
-                      <span className="text-sm font-semibold">{dest.rating}</span>
+                         <FaStar className="text-yellow-500 text-xs" />
+                         <span className="text-sm font-semibold text-gray-800 dark:text-gray-800/90 bg-white/90 px-2 rounded-full">{dest.rating ? dest.rating : 'N/A'}</span>
                     </div>
                     <span className="absolute top-4 left-4 bg-emerald-600 text-white text-xs font-semibold px-3 py-1.5 rounded-full capitalize">
                       {dest.category}
@@ -390,7 +390,7 @@ const Destinations = () => {
                   </div>
                   <div className="p-5">
                     <h3 className="text-lg font-bold text-gray-800 group-hover:text-emerald-600 transition-colors">
-                      {dest.name}
+                       <span className="text-gray-800 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">{dest.name}</span>
                     </h3>
                     <div className="flex items-center gap-1 text-gray-500 text-sm mt-1">
                       <FaMapMarkerAlt className="text-emerald-500 text-xs" />
@@ -410,15 +410,15 @@ const Destinations = () => {
                         </span>
                       )}
                     </div>
-                    <div className="flex items-center justify-between mt-4 pt-4 border-t border-gray-100">
+                    <div className="flex items-center justify-between mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
                       <div className="flex items-center text-emerald-600 font-bold text-lg">
                         <FaRupeeSign className="text-sm" />
                         {dest.price.toLocaleString()}
                         <span className="text-gray-400 text-xs font-normal ml-1">/ person</span>
                       </div>
-                      <span className="bg-emerald-50 text-emerald-600 px-4 py-2 rounded-full font-medium text-sm hover:bg-emerald-600 hover:text-white transition-all">
-                        Explore
-                      </span>
+                      
+                        <span className="bg-white dark:bg-emerald-900 text-emerald-600 dark:text-emerald-400 px-4 py-2 rounded-full font-medium text-sm border border-emerald-600 dark:border-emerald-400 hover:bg-emerald-600 dark:hover:bg-emerald-500 hover:text-white dark:hover:text-gray-200 transition-all">Explore</span>
+                      
                     </div>
                   </div>
                 </Link>
