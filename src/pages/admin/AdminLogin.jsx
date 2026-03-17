@@ -27,6 +27,12 @@ const generateCaptcha = () => {
 
 const AdminLogin = () => {
   const [form, setForm] = useState({ email: "", password: "" });
+
+  // Handle input changes for email and password
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+  };
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [checkingSetup, setCheckingSetup] = useState(true);
