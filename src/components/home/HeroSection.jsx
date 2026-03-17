@@ -326,10 +326,8 @@ const HeroSection = () => {
                   className="group flex items-center gap-2.5 text-white/80 dark:text-gray-200 px-6 py-3.5 rounded-full border border-white/10 dark:border-gray-700 bg-white/4 dark:bg-gray-800 backdrop-blur-xl hover:bg-white/8 dark:hover:bg-gray-900 hover:border-white/20 dark:hover:border-gray-500 transition-all duration-300 font-medium text-sm"
                 >
                   <FaCompass className="text-emerald-400 text-xs group-hover:rotate-180 transition-transform duration-700" />
-                    {/* Only one FaCompass needed, merge classes */}
-                    Destinations
-                  {/* Only one FaChevronRight needed, merge classes */}
-                    <FaChevronRight className="text-[9px] text-white/40 dark:text-gray-400 group-hover:text-white/70 dark:group-hover:text-gray-200 group-hover:translate-x-0.5 transition-all" />
+                  Destinations
+                  <FaChevronRight className="text-[9px] text-white/40 group-hover:text-white/70 group-hover:translate-x-0.5 transition-all" />
                 </Link>
               </div>
 
