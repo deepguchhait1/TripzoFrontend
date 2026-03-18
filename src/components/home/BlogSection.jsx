@@ -90,7 +90,7 @@ const BlogSection = () => {
 
           {/* Side cards */}
           <div className="flex flex-col gap-6">
-            {rest.map((post) => (
+            {(Array.isArray(rest) ? rest : []).map((post) => (
               <article
                 key={post._id || post.id}
                 className="group flex gap-5 bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 hover:border-emerald-200 dark:hover:border-emerald-700 hover:shadow-xl hover:shadow-emerald-100/30 dark:hover:shadow-emerald-900/20 transition-all duration-500 overflow-hidden h-full"
