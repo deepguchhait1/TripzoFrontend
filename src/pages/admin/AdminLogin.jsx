@@ -35,6 +35,11 @@ const AdminLogin = () => {
   const navigate = useNavigate();
   const { login } = useAuth();
 
+  // Handle input changes
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+  };
   // Redirect to setup if no admin exists
   useEffect(() => {
     getSetupStatus()
@@ -182,7 +187,7 @@ const AdminLogin = () => {
                     value={form.email}
                     onChange={handleChange}
                     autoComplete="username"
-                    className="text-gray-600 w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition text-sm"
+                    className="pl-10 text-gray-600 w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition text-sm"
                 />
               </div>
             </div>
@@ -200,7 +205,7 @@ const AdminLogin = () => {
                     value={form.password}
                     onChange={handleChange}
                     autoComplete="current-password"
-                    className="text-gray-600 w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition text-sm"
+                    className="pl-10 text-gray-600 w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition text-sm"
                 />
                 <button
                   type="button"

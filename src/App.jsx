@@ -20,6 +20,7 @@ const Booking = lazy(() => import("./pages/Booking"));
 const PackageDetails = lazy(() => import("./pages/PackageDetails"));
 const SearchResults = lazy(() => import("./pages/SearchResults"));
 const BlogDetails = lazy(() => import("./pages/BlogDetails"));
+const TrackingPage = lazy(() => import("./pages/TrackingPage"));
 
 // Lazy-loaded admin pages
 const AdminLogin = lazy(() => import("./pages/admin/AdminLogin"));
@@ -80,6 +81,7 @@ function App() {
                       <Route path="/booking/:packageId" element={<Booking />} />
                       <Route path="/search" element={<SearchResults />} />
                       <Route path="/blog/:id" element={<BlogDetails />} />
+                      <Route path="/track/:trackingId" element={<TrackingPage />} />
                     </Routes>
                   </main>
                   <Footer />
