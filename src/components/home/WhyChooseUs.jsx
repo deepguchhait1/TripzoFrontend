@@ -83,13 +83,16 @@ const useCounter = (end, duration = 2000, trigger = false) => {
 
 const WhyChooseUs = () => {
   const [stats, setStats] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [visible, setVisible] = useState(false);
   const statsRef = useRef(null);
+  const showSkeleton = loading || !stats;
 
   useEffect(() => {
     getPublicStats()
       .then((res) => setStats(res.data))
-      .catch(() => {});
+      .catch(() => {})
+      .finally(() => setLoading(false));
   }, []);
 
   useEffect(() => {
@@ -101,10 +104,10 @@ const WhyChooseUs = () => {
     return () => observer.disconnect();
   }, []);
 
-  const destCount = useCounter(stats?.destinations || 0, 1800, visible);
-  const pkgCount = useCounter(stats?.packages || 0, 1800, visible);
-  const custCount = useCounter(stats?.happyCustomers || 0, 2200, visible);
-  const revCount = useCounter(stats?.testimonials || 0, 1400, visible);
+  const destCount = useCounter(stats?.destinations || 0, 1800, visible && !!stats);
+  const pkgCount = useCounter(stats?.packages || 0, 1800, visible && !!stats);
+  const custCount = useCounter(stats?.happyCustomers || 0, 2200, visible && !!stats);
+  const revCount = useCounter(stats?.testimonials || 0, 1400, visible && !!stats);
 
   return (
     <section className="py-24 bg-gray-50/60 dark:bg-gray-900/80 relative overflow-hidden transition-colors">
@@ -141,7 +144,7 @@ const WhyChooseUs = () => {
               className="group bg-white dark:bg-gray-800 rounded-2xl p-7 border border-gray-100 dark:border-gray-700 hover:border-emerald-200 dark:hover:border-emerald-700 hover:shadow-xl hover:shadow-emerald-100/30 dark:hover:shadow-emerald-900/20 transition-all duration-500 relative overflow-hidden"
             >
               {/* Hover accent line */}
-              <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${feat.gradient} scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`} />
+              <div className={`absolute top-0 left-0 right-0 h-1 bg-linear-to-r ${feat.gradient} scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`} />
 
               <div
                 className={`w-12 h-12 rounded-xl ${feat.bg} dark:bg-white/10 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300`}
@@ -172,21 +175,28 @@ const WhyChooseUs = () => {
           <div className="absolute inset-0 bg-emerald-900/85 backdrop-blur-sm" />
 
           <div className="relative grid grid-cols-2 md:grid-cols-4 gap-8 p-10 md:p-14">
-            {[
-              { value: destCount, suffix: "+", label: "Destinations" },
-              { value: pkgCount, suffix: "+", label: "Tour Packages" },
-              { value: custCount, suffix: "+", label: "Happy Customers" },
-              { value: revCount, suffix: "+", label: "Traveler Reviews" },
-            ].map((stat, i) => (
-              <div key={i} className="text-center">
-                <div className="text-4xl md:text-5xl font-extrabold text-white tracking-tight">
-                  {stat.value.toLocaleString()}{stat.suffix}
-                </div>
-                <div className="text-emerald-300/80 mt-2 text-sm font-medium uppercase tracking-wider">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
+            {showSkeleton
+              ? [0, 1, 2, 3].map((i) => (
+                  <div key={i} className="text-center animate-pulse">
+                    <div className="mx-auto h-12 md:h-14 w-24 rounded-2xl bg-white/15" />
+                    <div className="mx-auto mt-3 h-4 w-28 rounded-full bg-white/10" />
+                  </div>
+                ))
+              : [
+                  { value: destCount, suffix: "+", label: "Destinations" },
+                  { value: pkgCount, suffix: "+", label: "Tour Packages" },
+                  { value: custCount, suffix: "+", label: "Happy Customers" },
+                  { value: revCount, suffix: "+", label: "Traveler Reviews" },
+                ].map((stat, i) => (
+                  <div key={i} className="text-center">
+                    <div className="text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+                      {stat.value.toLocaleString()}{stat.suffix}
+                    </div>
+                    <div className="text-emerald-300/80 mt-2 text-sm font-medium uppercase tracking-wider">
+                      {stat.label}
+                    </div>
+                  </div>
+                ))}
           </div>
         </div>
       </div>

@@ -6,6 +6,7 @@ import { getPackages } from "../../services/api";
 const TourPackages = () => {
   const [packages, setPackages] = useState([]);
   const [loading, setLoading] = useState(true);
+  const showSkeleton = loading || packages.length === 0;
 
   useEffect(() => {
     getPackages({ limit: 6 })
@@ -14,22 +15,39 @@ const TourPackages = () => {
       .finally(() => setLoading(false));
   }, []);
 
-  if (loading) {
+  if (showSkeleton) {
     return (
-      <section className="py-24 bg-white dark:bg-gray-900">
-        <div className="flex items-center justify-center h-64">
-          <div className="animate-spin h-10 w-10 border-4 border-emerald-500 border-t-transparent rounded-full" />
+      <section className="py-24 bg-white dark:bg-gray-900 relative overflow-hidden transition-colors">
+        <div className="absolute top-0 inset-x-0 h-1/2 bg-linear-to-b from-gray-50/80 dark:from-gray-800/50 to-transparent" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative animate-pulse">
+          <div className="text-center mb-14 space-y-4">
+            <div className="mx-auto h-7 w-28 rounded-full bg-gray-200 dark:bg-gray-700" />
+            <div className="mx-auto h-12 w-2/3 rounded-2xl bg-gray-200 dark:bg-gray-700" />
+            <div className="mx-auto h-6 w-5/6 max-w-2xl rounded-full bg-gray-200 dark:bg-gray-700" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+            {[0, 1, 2, 3, 4, 5].map((i) => (
+              <div key={i} className="rounded-3xl bg-gray-100 dark:bg-gray-800 overflow-hidden">
+                <div className="h-60 bg-gray-200 dark:bg-gray-700" />
+                <div className="p-6 space-y-4">
+                  <div className="h-6 w-5/6 rounded-full bg-gray-200 dark:bg-gray-700" />
+                  <div className="h-4 w-1/2 rounded-full bg-gray-200 dark:bg-gray-700" />
+                  <div className="h-4 w-full rounded-full bg-gray-200 dark:bg-gray-700" />
+                  <div className="h-10 w-full rounded-xl bg-gray-200 dark:bg-gray-700" />
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     );
   }
 
-  if (packages.length === 0) return null;
-
   return (
     <section className="py-24 bg-white dark:bg-gray-900 relative overflow-hidden transition-colors">
       {/* Background accent */}
-      <div className="absolute top-0 inset-x-0 h-1/2 bg-gradient-to-b from-gray-50/80 dark:from-gray-800/50 to-transparent" />
+      <div className="absolute top-0 inset-x-0 h-1/2 bg-linear-to-b from-gray-50/80 dark:from-gray-800/50 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Header */}
@@ -65,7 +83,7 @@ const TourPackages = () => {
                     alt={pkg.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent" />
 
                   {/* Badges */}
                   <div className="absolute top-4 left-4 flex items-center gap-2">

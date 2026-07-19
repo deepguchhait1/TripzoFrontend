@@ -73,12 +73,46 @@ const categoriesData = [
 
 const Categories = () => {
   const [categoryCounts, setCategoryCounts] = useState({});
+  const [loading, setLoading] = useState(true);
+  const hasCategoryData = Object.keys(categoryCounts).length > 0;
 
   useEffect(() => {
     getPublicStats()
       .then((res) => setCategoryCounts(res.data.categories || {}))
-      .catch(() => {});
+      .catch(() => {})
+      .finally(() => setLoading(false));
   }, []);
+
+  if (loading || !hasCategoryData) {
+    return (
+      <section className="py-24 bg-white dark:bg-gray-900 relative overflow-hidden transition-colors">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative animate-pulse">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
+            <div className="space-y-4 max-w-2xl w-full">
+              <div className="h-7 w-28 rounded-full bg-gray-200 dark:bg-gray-700" />
+              <div className="h-12 w-2/3 rounded-2xl bg-gray-200 dark:bg-gray-700" />
+              <div className="h-6 w-5/6 rounded-full bg-gray-200 dark:bg-gray-700" />
+            </div>
+            <div className="h-6 w-28 rounded-full bg-gray-200 dark:bg-gray-700" />
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {[0, 1, 2, 3, 4, 5].map((i) => (
+              <div key={i} className="flex items-center gap-5 rounded-2xl p-4 pr-6 bg-gray-100 dark:bg-gray-800 border border-gray-100 dark:border-gray-700">
+                <div className="relative w-24 h-24 shrink-0 rounded-xl bg-gray-200 dark:bg-gray-700" />
+                <div className="flex-1 space-y-3">
+                  <div className="h-5 w-3/5 rounded-full bg-gray-200 dark:bg-gray-700" />
+                  <div className="h-4 w-1/2 rounded-full bg-gray-200 dark:bg-gray-700" />
+                  <div className="h-6 w-24 rounded-full bg-gray-200 dark:bg-gray-700" />
+                </div>
+                <div className="w-9 h-9 rounded-full bg-gray-200 dark:bg-gray-700 shrink-0" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="py-24 bg-white dark:bg-gray-900 relative overflow-hidden transition-colors">

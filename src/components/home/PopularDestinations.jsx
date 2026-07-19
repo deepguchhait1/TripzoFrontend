@@ -6,6 +6,7 @@ import { getDestinations } from "../../services/api";
 const PopularDestinations = () => {
   const [popular, setPopular] = useState([]);
   const [loading, setLoading] = useState(true);
+  const showSkeleton = loading || popular.length === 0;
 
   useEffect(() => {
     getDestinations({ limit: 7 })
@@ -14,17 +15,36 @@ const PopularDestinations = () => {
       .finally(() => setLoading(false));
   }, []);
 
-  if (loading) {
+  if (showSkeleton) {
     return (
-      <section className="py-24 bg-gray-50/60 dark:bg-gray-900/80">
-        <div className="flex items-center justify-center h-64">
-          <div className="animate-spin h-10 w-10 border-4 border-emerald-500 border-t-transparent rounded-full" />
+      <section className="py-24 bg-gray-50/60 dark:bg-gray-900/80 relative overflow-hidden transition-colors">
+        <div className="absolute top-20 left-0 w-80 h-80 bg-emerald-100 dark:bg-emerald-900/30 rounded-full blur-3xl opacity-40 -translate-x-1/2" />
+        <div className="absolute bottom-20 right-0 w-96 h-96 bg-cyan-100 dark:bg-cyan-900/20 rounded-full blur-3xl opacity-30 translate-x-1/3" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative animate-pulse">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
+            <div className="space-y-4 max-w-2xl w-full">
+              <div className="h-7 w-28 rounded-full bg-gray-200 dark:bg-gray-700" />
+              <div className="h-12 w-2/3 rounded-2xl bg-gray-200 dark:bg-gray-700" />
+              <div className="h-6 w-5/6 rounded-full bg-gray-200 dark:bg-gray-700" />
+            </div>
+            <div className="h-12 w-32 rounded-2xl bg-gray-200 dark:bg-gray-700" />
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 auto-rows-[320px]">
+            {[0, 1, 2, 3, 4, 5].map((i) => (
+              <div
+                key={i}
+                className={`rounded-3xl bg-gray-100 dark:bg-gray-800 ${
+                  i === 0 || i === 3 ? "sm:col-span-2" : ""
+                }`}
+              />
+            ))}
+          </div>
         </div>
       </section>
     );
   }
-
-  if (popular.length === 0) return null;
 
   return (
     <section className="py-24 bg-gray-50/60 dark:bg-gray-900/80 relative overflow-hidden transition-colors">
@@ -74,7 +94,7 @@ const PopularDestinations = () => {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
                 {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-950/90 via-gray-950/20 to-transparent" />
+                <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(3,7,18,0.9), rgba(3,7,18,0.2), transparent)" }} />
 
                 {/* Top badges */}
                 <div className="absolute top-4 left-4 right-4 flex items-start justify-between">

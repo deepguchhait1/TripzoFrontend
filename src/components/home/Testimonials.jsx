@@ -6,6 +6,7 @@ const Testimonials = () => {
   const [testimonials, setTestimonials] = useState([]);
   const [active, setActive] = useState(0);
   const [loading, setLoading] = useState(true);
+  const showSkeleton = loading || testimonials.length === 0;
 
   useEffect(() => {
     getTestimonials()
@@ -30,24 +31,53 @@ const Testimonials = () => {
     return () => clearInterval(timer);
   }, [next, testimonials.length]);
 
-  if (loading) {
+  if (showSkeleton) {
     return (
-      <section className="py-24 bg-white dark:bg-gray-900">
-        <div className="flex items-center justify-center h-64">
-          <div className="animate-spin h-10 w-10 border-4 border-emerald-500 border-t-transparent rounded-full" />
+      <section className="py-24 bg-white dark:bg-gray-900 relative overflow-hidden transition-colors">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-150 h-150 bg-emerald-50 dark:bg-emerald-900/20 rounded-full blur-3xl opacity-50" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative animate-pulse">
+          <div className="text-center mb-16 space-y-4">
+            <div className="mx-auto h-7 w-32 rounded-full bg-gray-200 dark:bg-gray-700" />
+            <div className="mx-auto h-12 w-2/3 rounded-2xl bg-gray-200 dark:bg-gray-700" />
+            <div className="mx-auto h-6 w-5/6 max-w-2xl rounded-full bg-gray-200 dark:bg-gray-700" />
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="relative bg-gray-50 dark:bg-gray-800 rounded-3xl border border-gray-100 dark:border-gray-700 p-8 md:p-12 lg:p-14 space-y-6">
+              <div className="h-10 w-10 rounded-xl bg-gray-200 dark:bg-gray-700" />
+              <div className="h-5 w-32 rounded-full bg-gray-200 dark:bg-gray-700" />
+              <div className="space-y-3">
+                <div className="h-6 w-full rounded-full bg-gray-200 dark:bg-gray-700" />
+                <div className="h-6 w-11/12 rounded-full bg-gray-200 dark:bg-gray-700" />
+                <div className="h-6 w-4/5 rounded-full bg-gray-200 dark:bg-gray-700" />
+              </div>
+              <div className="flex items-center justify-between flex-wrap gap-4">
+                <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 rounded-2xl bg-gray-200 dark:bg-gray-700" />
+                  <div className="space-y-2">
+                    <div className="h-4 w-32 rounded-full bg-gray-200 dark:bg-gray-700" />
+                    <div className="h-3 w-40 rounded-full bg-gray-200 dark:bg-gray-700" />
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-11 h-11 rounded-xl bg-gray-200 dark:bg-gray-700" />
+                  <div className="w-16 h-4 rounded-full bg-gray-200 dark:bg-gray-700" />
+                  <div className="w-11 h-11 rounded-xl bg-gray-200 dark:bg-gray-700" />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     );
   }
-
-  if (testimonials.length === 0) return null;
 
   const t = testimonials[active];
 
   return (
     <section className="py-24 bg-white dark:bg-gray-900 relative overflow-hidden transition-colors">
       {/* Decorative */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-emerald-50 dark:bg-emerald-900/20 rounded-full blur-3xl opacity-50" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-150 h-150 bg-emerald-50 dark:bg-emerald-900/20 rounded-full blur-3xl opacity-50" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Header */}
@@ -88,7 +118,7 @@ const Testimonials = () => {
             {/* Quote text */}
             <blockquote
               key={`quote-${active}`}
-              className="text-gray-700 dark:text-gray-200 text-lg md:text-xl leading-relaxed mb-8 min-h-[80px] animate-[fadeIn_0.5s_ease-out]"
+              className="text-gray-700 dark:text-gray-200 text-lg md:text-xl leading-relaxed mb-8 min-h-20 animate-[fadeIn_0.5s_ease-out]"
             >
               &ldquo;{t.text}&rdquo;
             </blockquote>
@@ -121,7 +151,7 @@ const Testimonials = () => {
                 >
                   <FaChevronLeft className="text-gray-500 dark:text-gray-400 text-sm" />
                 </button>
-                <span className="text-sm text-gray-400 dark:text-gray-500 font-mono min-w-[48px] text-center">
+                <span className="text-sm text-gray-400 dark:text-gray-500 font-mono min-w-12 text-center">
                   {String(active + 1).padStart(2, "0")} / {String(testimonials.length).padStart(2, "0")}
                 </span>
                 <button

@@ -6,6 +6,7 @@ import { getBlogs } from "../../services/api";
 const BlogSection = () => {
   const [blogPosts, setBlogPosts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const showSkeleton = loading || blogPosts.length === 0;
 
   useEffect(() => {
     getBlogs({ limit: 3 })
@@ -14,17 +15,31 @@ const BlogSection = () => {
       .finally(() => setLoading(false));
   }, []);
 
-  if (loading) {
+  if (showSkeleton) {
     return (
-      <section className="py-24 bg-gray-50/60 dark:bg-gray-900/80">
-        <div className="flex items-center justify-center h-64">
-          <div className="animate-spin h-10 w-10 border-4 border-emerald-500 border-t-transparent rounded-full" />
+      <section className="py-24 bg-gray-50/60 dark:bg-gray-900/80 relative overflow-hidden transition-colors">
+        <div className="absolute bottom-0 right-0 w-80 h-80 bg-emerald-50 dark:bg-emerald-900/20 rounded-full blur-3xl opacity-40 translate-x-1/3 translate-y-1/3" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative animate-pulse">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
+            <div className="space-y-4 max-w-2xl w-full">
+              <div className="h-7 w-32 rounded-full bg-gray-200 dark:bg-gray-700" />
+              <div className="h-12 w-2/3 rounded-2xl bg-gray-200 dark:bg-gray-700" />
+              <div className="h-6 w-5/6 rounded-full bg-gray-200 dark:bg-gray-700" />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div style={{ height: 480 }} className="rounded-3xl bg-gray-100 dark:bg-gray-800" />
+            <div className="flex flex-col gap-6">
+              {[0, 1].map((i) => (
+                <div key={i} className="h-40 rounded-2xl bg-gray-100 dark:bg-gray-800" />
+              ))}
+            </div>
+          </div>
         </div>
       </section>
     );
   }
-
-  if (blogPosts.length === 0) return null;
 
   const [featured, ...rest] = blogPosts;
 
@@ -52,13 +67,13 @@ const BlogSection = () => {
         {/* Magazine layout: featured + side cards */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Featured post */}
-          <article className="group relative rounded-3xl overflow-hidden h-[480px]">
+          <article className="group relative rounded-3xl overflow-hidden" style={{ height: 480 }}>
             <img
               src={featured.image}
               alt={featured.title}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-gray-950/90 via-gray-950/30 to-transparent" />
+            <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(3,7,18,0.9), rgba(3,7,18,0.3), transparent)" }} />
             <div className="absolute top-5 left-5">
               <span className="bg-emerald-500 text-white text-xs font-bold px-3.5 py-1.5 rounded-xl">
                 {featured.category}
